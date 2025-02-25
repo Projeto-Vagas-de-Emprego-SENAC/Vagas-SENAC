@@ -23,7 +23,6 @@ public class Empregador {
 	private String nome;
 	private String razaoSocial;
 	private String cnpj;
-	private String ie;
 	
 	
 
