@@ -30,6 +30,7 @@ public class Vagas {
 	private String tipo;
 	private LocalDate dataAnuncio;
 	private String nivelExperiencia;
+	//teste de breach hahaha tendeu
 	
 	
 }
