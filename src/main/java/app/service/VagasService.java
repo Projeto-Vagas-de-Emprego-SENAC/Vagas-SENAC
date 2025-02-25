@@ -47,4 +47,7 @@ public class VagasService {
 		return "A Vaga foi deletado";
 	}
 
+	public List<Vagas> findByNome(String titulo){
+		return this.vagasRepository.findByTitulo(titulo);
+	}
 }
