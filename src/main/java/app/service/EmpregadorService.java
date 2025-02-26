@@ -47,11 +47,11 @@ public class EmpregadorService {
 		return "O Empregador foi deletado";
 	}
 	
-	 public List<Empregador> buscarPorNome(String nome) {
+	 public List<Empregador> findByNome(String nome) {
 	        return empregadorRepository.findByNome(nome);
 	    }
 
-	    public List<Empregador> buscarPorNomeContendo(String nome) {
+	    public List<Empregador> findByNomeContaining(String nome) {
 	        return empregadorRepository.findByNomeContaining(nome);
 	    }
 

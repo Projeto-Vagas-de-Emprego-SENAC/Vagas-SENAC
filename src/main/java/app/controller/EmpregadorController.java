@@ -86,14 +86,14 @@ public class EmpregadorController {
 			return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
 		}
 	}
-	 @GetMapping("/buscarPorNome")
-	    public List<Empregador> buscarPorNome(@RequestParam String nome) {
-	        return empregadorService.buscarPorNome(nome);
+	 @GetMapping("/findByNome")
+	    public List<Empregador> findByNome(@RequestParam String nome) {
+	        return empregadorService.findByNome(nome);
 	    }
 
-	    @GetMapping("/buscarPorNomeContendo")
-	    public List<Empregador> buscarPorNomeContendo(@RequestParam String nome) {
-	        return empregadorService.buscarPorNomeContendo(nome);
+	    @GetMapping("/findByNomeContaining")
+	    public List<Empregador> findByNomeContaining(@RequestParam String nome) {
+	        return empregadorService.findByNomeContaining(nome);
 	    }
 
 }
