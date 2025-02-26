@@ -25,5 +25,7 @@ public class Endereco {
 	private String cidade;
 	private String cep;
 	private int numero;
+	
+	
 
 }
