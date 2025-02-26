@@ -89,9 +89,9 @@ public class VagasController {
 	}
 
 	@GetMapping("/findByTitulo")
-	public ResponseEntity<List<Vagas>> findByTitulo(@RequestParam String titulo){
+	public ResponseEntity<List<Vagas>> findByTituloContainingIgnoreCase(@RequestParam String titulo){
 		try {
-			return new ResponseEntity<>(this.vagasService.findByTitulo(titulo), HttpStatus.OK);
+			return new ResponseEntity<>(this.vagasService.findByTituloContainingIgnoreCase(titulo), HttpStatus.OK);
 		} catch (Exception e) {
 			return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST );
 
@@ -109,9 +109,9 @@ public class VagasController {
 	}
 	
 	@GetMapping("/findBySalario")
-	public ResponseEntity<List<Vagas>> findBySalario(@RequestParam float salario){
+	public ResponseEntity<List<Vagas>> findBySalarioBetween(@RequestParam float salario1, float salario2){
 		try {
-			return new ResponseEntity<>(this.vagasService.findBySalario(salario), HttpStatus.OK);
+			return new ResponseEntity<>(this.vagasService.findBySalarioBetween(salario1, salario2), HttpStatus.OK);
 		} catch (Exception e) {
 			return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST );
 
