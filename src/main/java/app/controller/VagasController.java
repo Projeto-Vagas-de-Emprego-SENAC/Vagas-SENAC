@@ -128,10 +128,10 @@ public class VagasController {
 		}
 	}
 	
-	@GetMapping("/findByData")
-	public ResponseEntity<List<Vagas>> findByData(@RequestParam LocalDate data){
+	@GetMapping("/findByDataAnuncio")
+	public ResponseEntity<List<Vagas>> findByDataAnuncio(@RequestParam LocalDate data){
 		try {
-			return new ResponseEntity<>(this.vagasService.findByData(data), HttpStatus.OK);
+			return new ResponseEntity<>(this.vagasService.findByDataAnuncio(data), HttpStatus.OK);
 		} catch (Exception e) {
 			return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST );
 
@@ -148,10 +148,10 @@ public class VagasController {
 		}
 	}
 	
-	@GetMapping("/findByNivelExp")
-	public ResponseEntity<List<Vagas>> findByNivelExp(@RequestParam String nivelExperiencia){
+	@GetMapping("/findByNivelExperiencia")
+	public ResponseEntity<List<Vagas>> findByNivelExperiencia(@RequestParam String nivelExperiencia){
 		try {
-			return new ResponseEntity<>(this.vagasService.findByNivelExp(nivelExperiencia), HttpStatus.OK);
+			return new ResponseEntity<>(this.vagasService.findByNivelExperiencia(nivelExperiencia), HttpStatus.OK);
 		} catch (Exception e) {
 			return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST );
 

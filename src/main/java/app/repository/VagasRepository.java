@@ -17,10 +17,10 @@ public interface VagasRepository extends JpaRepository<Vagas, Long> {
 	
 	public List<Vagas> findBySetor(String setor);
 	
-	public List<Vagas> findByData(LocalDate dataAnuncio);
+	public List<Vagas> findByDataAnuncio(LocalDate dataAnuncio);
 	
 	public List<Vagas> findByTipo(String tipo);
 	
-	public List<Vagas> findByNivelExp(String nivelExperiencia);
+	public List<Vagas> findByNivelExperiencia(String nivelExperiencia);
 
 }

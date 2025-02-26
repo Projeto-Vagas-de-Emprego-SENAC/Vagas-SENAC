@@ -64,16 +64,16 @@ public class VagasService {
 		return this.vagasRepository.findBySetor(setor);
 	}
 	
-	public List<Vagas> findByData(LocalDate dataAnuncio){
-		return this.vagasRepository.findByData(dataAnuncio);
+	public List<Vagas> findByDataAnuncio(LocalDate dataAnuncio){
+		return this.vagasRepository.findByDataAnuncio(dataAnuncio);
 	}
 	
 	public List<Vagas> findByTipo(String tipo){
 		return this.vagasRepository.findByTipo(tipo);
 	}
 	
-	public List<Vagas> findByNivelExp(String nivelExperiencia){
-		return this.vagasRepository.findByNivelExp(nivelExperiencia);
+	public List<Vagas> findByNivelExperiencia(String nivelExperiencia){
+		return this.vagasRepository.findByNivelExperiencia(nivelExperiencia);
 	}
 	
 }
