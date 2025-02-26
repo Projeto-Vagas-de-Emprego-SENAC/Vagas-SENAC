@@ -89,9 +89,9 @@ public class VagasController {
 	}
 
 	@GetMapping("/findByTitulo")
-	public ResponseEntity<List<Vagas>> findByTitulo(@RequestParam String titulo){
+	public ResponseEntity<List<Vagas>> findByTituloContainingIgnoreCase(@RequestParam String titulo){
 		try {
-			return new ResponseEntity<>(this.vagasService.findByTitulo(titulo), HttpStatus.OK);
+			return new ResponseEntity<>(this.vagasService.findByTituloContainingIgnoreCase(titulo), HttpStatus.OK);
 		} catch (Exception e) {
 			return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST );
 
