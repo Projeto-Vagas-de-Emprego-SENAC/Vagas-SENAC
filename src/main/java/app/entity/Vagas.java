@@ -1,16 +1,22 @@
 package app.entity;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -40,6 +46,19 @@ public class Vagas {
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
 	private LocalDate dataAnuncio;
 	private String nivelExperiencia;
+
+	@NotNull
+	@ManyToOne
+	@JsonIgnoreProperties("vagas")
+	private Empregador empregador;
+	
+	@ManyToMany(mappedBy = "vagas")
+	@JsonIgnoreProperties("vagas")
+	private List<Candidato> candidatos;
+	
+	@NotEmpty
+	@OneToOne
+	private List<Endereco> enderecos;
 	
 	//relações abaixo
 	
