@@ -13,7 +13,7 @@ public interface VagasRepository extends JpaRepository<Vagas, Long> {
 	
 	public List<Vagas> findByRequisito(String requisito);
 	
-	public List<Vagas> findBySalario(float salario);
+	public List<Vagas> findBySalarioBetween(float salario1, float salario2);
 	
 	public List<Vagas> findBySetor(String setor);
 	

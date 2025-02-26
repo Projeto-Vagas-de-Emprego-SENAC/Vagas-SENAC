@@ -56,8 +56,8 @@ public class VagasService {
 		return this.vagasRepository.findByTitulo(requisito);
 	}
 	
-	public List<Vagas> findBySalario(float salario){
-		return this.vagasRepository.findBySalario(salario);
+	public List<Vagas> findBySalarioBetween(float salario1, float salario2){
+		return this.vagasRepository.findBySalarioBetween(salario1, salario2);
 	}
 	
 	public List<Vagas> findBySetor(String setor){

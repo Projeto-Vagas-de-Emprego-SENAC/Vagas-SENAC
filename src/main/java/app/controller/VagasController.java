@@ -109,9 +109,9 @@ public class VagasController {
 	}
 	
 	@GetMapping("/findBySalario")
-	public ResponseEntity<List<Vagas>> findBySalario(@RequestParam float salario){
+	public ResponseEntity<List<Vagas>> findBySalarioBetween(@RequestParam float salario1, float salario2){
 		try {
-			return new ResponseEntity<>(this.vagasService.findBySalario(salario), HttpStatus.OK);
+			return new ResponseEntity<>(this.vagasService.findBySalarioBetween(salario1, salario2), HttpStatus.OK);
 		} catch (Exception e) {
 			return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST );
 
