@@ -9,11 +9,11 @@ import app.entity.Vagas;
 
 public interface VagasRepository extends JpaRepository<Vagas, Long> {
 	
-	public List<Vagas> findByTitulo(String titulo);
+	public List<Vagas> findByTituloContainingIgnoreCase(String titulo);
 	
 	public List<Vagas> findByRequisito(String requisito);
 	
-	public List<Vagas> findBySalario(float salario);
+	public List<Vagas> findBySalarioBetween(float salario1, float salario2);
 	
 	public List<Vagas> findBySetor(String setor);
 	

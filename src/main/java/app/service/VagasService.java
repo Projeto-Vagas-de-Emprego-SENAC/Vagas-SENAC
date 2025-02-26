@@ -48,16 +48,16 @@ public class VagasService {
 		return "A Vaga foi deletado";
 	}
 
-	public List<Vagas> findByTitulo(String titulo){
-		return this.vagasRepository.findByTitulo(titulo);
+	public List<Vagas> findByTituloContainingIgnoreCase(String titulo){
+		return this.vagasRepository.findByTituloContainingIgnoreCase(titulo);
 	}
 	
 	public List<Vagas> findByRequisito(String requisito){
-		return this.vagasRepository.findByTitulo(requisito);
+		return this.vagasRepository.findByRequisito(requisito);
 	}
 	
-	public List<Vagas> findBySalario(float salario){
-		return this.vagasRepository.findBySalario(salario);
+	public List<Vagas> findBySalarioBetween(float salario1, float salario2){
+		return this.vagasRepository.findBySalarioBetween(salario1, salario2);
 	}
 	
 	public List<Vagas> findBySetor(String setor){
