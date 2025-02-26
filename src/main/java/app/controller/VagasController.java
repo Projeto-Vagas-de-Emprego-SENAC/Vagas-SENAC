@@ -1,5 +1,6 @@
 package app.controller;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import app.entity.Vagas;
@@ -86,4 +88,75 @@ public class VagasController {
 		}
 	}
 
+	@GetMapping("/findByTitulo")
+	public ResponseEntity<List<Vagas>> findByTitulo(@RequestParam String titulo){
+		try {
+			return new ResponseEntity<>(this.vagasService.findByTitulo(titulo), HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST );
+
+		}
+	}
+	
+	@GetMapping("/findByRequisito")
+	public ResponseEntity<List<Vagas>> findByRequisito(@RequestParam String requisito){
+		try {
+			return new ResponseEntity<>(this.vagasService.findByRequisito(requisito), HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST );
+
+		}
+	}
+	
+	@GetMapping("/findBySalario")
+	public ResponseEntity<List<Vagas>> findBySalario(@RequestParam float salario){
+		try {
+			return new ResponseEntity<>(this.vagasService.findBySalario(salario), HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST );
+
+		}
+	}
+	
+	@GetMapping("/findBySetor")
+	public ResponseEntity<List<Vagas>> findBySetor(@RequestParam String setor){
+		try {
+			return new ResponseEntity<>(this.vagasService.findBySetor(setor), HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST );
+
+		}
+	}
+	
+	@GetMapping("/findByData")
+	public ResponseEntity<List<Vagas>> findByData(@RequestParam LocalDate data){
+		try {
+			return new ResponseEntity<>(this.vagasService.findByData(data), HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST );
+
+		}
+	}
+	
+	@GetMapping("/findByTipo")
+	public ResponseEntity<List<Vagas>> findByTipo(@RequestParam String tipo){
+		try {
+			return new ResponseEntity<>(this.vagasService.findByTipo(tipo), HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST );
+
+		}
+	}
+	
+	@GetMapping("/findByNivelExp")
+	public ResponseEntity<List<Vagas>> findByNivelExp(@RequestParam String nivelExperiencia){
+		try {
+			return new ResponseEntity<>(this.vagasService.findByNivelExp(nivelExperiencia), HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST );
+
+		}
+	}
+	
+	
 }
