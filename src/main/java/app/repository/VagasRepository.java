@@ -22,5 +22,7 @@ public interface VagasRepository extends JpaRepository<Vagas, Long> {
 	public List<Vagas> findByTipo(String tipo);
 	
 	public List<Vagas> findByNivelExperiencia(String nivelExperiencia);
+	
+	
 
 }

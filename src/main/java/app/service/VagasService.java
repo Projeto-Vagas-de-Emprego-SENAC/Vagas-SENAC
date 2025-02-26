@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import app.entity.Candidato;
 import app.entity.Vagas;
 import app.repository.VagasRepository;
 
@@ -16,6 +17,8 @@ public class VagasService {
 	private VagasRepository vagasRepository;
 	
 	public String save(Vagas vagas) {
+		
+		
 		
 		this.vagasRepository.save(vagas);
 		
