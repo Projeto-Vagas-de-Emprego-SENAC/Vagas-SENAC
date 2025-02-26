@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import app.entity.Empregador;
@@ -85,5 +86,14 @@ public class EmpregadorController {
 			return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
 		}
 	}
+	 @GetMapping("/buscarPorNome")
+	    public List<Empregador> buscarPorNome(@RequestParam String nome) {
+	        return empregadorService.buscarPorNome(nome);
+	    }
+
+	    @GetMapping("/buscarPorNomeContendo")
+	    public List<Empregador> buscarPorNomeContendo(@RequestParam String nome) {
+	        return empregadorService.buscarPorNomeContendo(nome);
+	    }
 
 }
