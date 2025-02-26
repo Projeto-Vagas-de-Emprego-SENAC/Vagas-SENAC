@@ -1,11 +1,18 @@
 package app.entity;
 
 import java.time.LocalDate;
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -31,5 +38,15 @@ public class Vagas {
 	private LocalDate dataAnuncio;
 	private String nivelExperiencia;
 	
+	@ManyToOne
+	@JsonIgnoreProperties("vagas")
+	private Empregador empregador;
+	
+	@ManyToMany(mappedBy = "vagas")
+	@JsonIgnoreProperties("vagas")
+	private List<Candidato> candidatos;
+	
+	@OneToOne
+	private List<Endereco> enderecos;
 	
 }
