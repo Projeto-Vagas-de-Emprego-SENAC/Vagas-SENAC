@@ -60,8 +60,8 @@ public class Vagas {
 	@JsonIgnoreProperties("vagas")
 	private List<Candidato> candidatos;
 	
-	@NotEmpty
+	//@NotEmpty
 	@OneToOne
-	private List<Endereco> enderecos;
+	private Endereco endereco;
 	
 }
