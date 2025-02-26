@@ -54,5 +54,6 @@ public class EmpregadorService {
 	    public List<Empregador> findByNomeContaining(String nome) {
 	        return empregadorRepository.findByNomeContaining(nome);
 	    }
-
 }
+//--->TESTE //
+
