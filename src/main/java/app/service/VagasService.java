@@ -1,5 +1,6 @@
 package app.service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,4 +48,32 @@ public class VagasService {
 		return "A Vaga foi deletado";
 	}
 
+	public List<Vagas> findByTitulo(String titulo){
+		return this.vagasRepository.findByTitulo(titulo);
+	}
+	
+	public List<Vagas> findByRequisito(String requisito){
+		return this.vagasRepository.findByTitulo(requisito);
+	}
+	
+	public List<Vagas> findBySalario(float salario){
+		return this.vagasRepository.findBySalario(salario);
+	}
+	
+	public List<Vagas> findBySetor(String setor){
+		return this.vagasRepository.findBySetor(setor);
+	}
+	
+	public List<Vagas> findByDataAnuncio(LocalDate dataAnuncio){
+		return this.vagasRepository.findByDataAnuncio(dataAnuncio);
+	}
+	
+	public List<Vagas> findByTipo(String tipo){
+		return this.vagasRepository.findByTipo(tipo);
+	}
+	
+	public List<Vagas> findByNivelExperiencia(String nivelExperiencia){
+		return this.vagasRepository.findByNivelExperiencia(nivelExperiencia);
+	}
+	
 }
