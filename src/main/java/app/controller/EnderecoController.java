@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import app.entity.Endereco;
@@ -84,5 +85,24 @@ public class EnderecoController {
 			return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
 		}
 	}
+	 @GetMapping("/buscarPorCidade")
+	    public List<Endereco> buscarPorCidade(@RequestParam String cidade) {
+	        return enderecoService.buscarPorCidade(cidade);
+	    }
+
+	    @GetMapping("/buscarPorCidadeContendo")
+	    public List<Endereco> buscarPorCidadeContendo(@RequestParam String cidade) {
+	        return enderecoService.buscarPorCidadeContendo(cidade);
+	    }
+
+	    @GetMapping("/buscarPorEstado")
+	    public List<Endereco> buscarPorEstado(@RequestParam String estado) {
+	        return enderecoService.buscarPorEstado(estado);
+	    }
+
+	    @GetMapping("/buscarPorEstadoContendo")
+	    public List<Endereco> buscarPorEstadoContendo(@RequestParam String estado) {
+	        return enderecoService.buscarPorEstadoContendo(estado);
+	    }
 
 }

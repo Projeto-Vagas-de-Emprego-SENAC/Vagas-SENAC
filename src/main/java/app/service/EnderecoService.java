@@ -46,5 +46,20 @@ public class EnderecoService {
 		this.enderecoRepository.deleteById(id);
 		return "O Endereco foi deletado";
 	}
+	public List<Endereco> buscarPorCidade(String cidade) {
+        return enderecoRepository.findByCidade(cidade);
+    }
+
+    public List<Endereco> buscarPorCidadeContendo(String cidade) {
+        return enderecoRepository.findByCidadeContaining(cidade);
+    }
+
+    public List<Endereco> buscarPorEstado(String estado) {
+        return enderecoRepository.findByEstado(estado);
+    }
+
+    public List<Endereco> buscarPorEstadoContendo(String estado) {
+        return enderecoRepository.findByEstadoContaining(estado);
+    }
 
 }
