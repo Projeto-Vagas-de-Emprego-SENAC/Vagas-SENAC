@@ -84,5 +84,48 @@ public class EnderecoController {
 			return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
 		}
 	}
+	
+	@GetMapping("/findByCidade")
+	public ResponseEntity<List<Endereco>> findByCidade(String cidade){
+		try {
+			List<Endereco> lista = this.enderecoService.findByCidade(cidade);
+			return new ResponseEntity<>(lista, HttpStatus.OK);
+			
+		}catch (Exception e){
+			return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+		}
+	}
+	@GetMapping("/findByEstado")
+	public ResponseEntity<List<Endereco>> findByEstado(String estado){
+		try {
+			List<Endereco> lista = this.enderecoService.findByEstado(estado);
+			return new ResponseEntity<>(lista, HttpStatus.OK);
+			
+		}catch (Exception e){
+			return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+		}
+		}
+	
+	@GetMapping("/findByCidadeContaining")
+	public ResponseEntity<List<Endereco>> findByCidadeContaining(String cidade){
+		try {
+			List<Endereco> lista = this.enderecoService.findByCidadeContaining(cidade);
+			return new ResponseEntity<>(lista, HttpStatus.OK);
+			
+		}catch (Exception e){
+			return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+		}
+	}
 
-}
+					@GetMapping("/findByEstadoContaining")
+			public ResponseEntity<List<Endereco>> findByEstadoContaining(String estado){
+				try {
+					List<Endereco> lista = this.enderecoService.findByEstadoContaining(estado);
+					return new ResponseEntity<>(lista, HttpStatus.OK);
+					
+				}catch (Exception e){
+					return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+				}
+
+					}
+		}

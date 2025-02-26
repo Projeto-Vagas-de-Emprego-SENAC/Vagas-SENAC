@@ -31,5 +31,4 @@ public class Endereco {
 	private String cep;
 	private int numero;
 	
-	//relações abaixo
 }

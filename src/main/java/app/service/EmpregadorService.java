@@ -18,7 +18,7 @@ public class EmpregadorService {
 		
 		this.empregadorRepository.save(empregador);
 		
-		return "o Empregador " + empregador.getNome() + empregador.getCnpj() + " foi salvo com sucesso";
+		return "o Empregador " + empregador.getNomeFantasia() + empregador.getCnpj() + " foi salvo com sucesso";
 	}
 	
 	public Empregador findById(long id) {
@@ -31,7 +31,7 @@ public class EmpregadorService {
 	public String update(Empregador empregador, long id) {
 		empregador.setId(id);
 		this.empregadorRepository.save(empregador);
-		return empregador.getNome() + " foi atualizado com sucesso!";
+		return empregador.getNomeFantasia() + " foi atualizado com sucesso!";
 	}
 	
 	public List<Empregador> findAll(){
@@ -46,5 +46,13 @@ public class EmpregadorService {
 		this.empregadorRepository.deleteById(id);
 		return "O Empregador foi deletado";
 	}
+	
+	 public List<Empregador> buscarPorNome(String nome) {
+	        return empregadorRepository.findByNome(nome);
+	    }
+
+	    public List<Empregador> buscarPorNomeContendo(String nome) {
+	        return empregadorRepository.findByNomeContaining(nome);
+	    }
 
 }

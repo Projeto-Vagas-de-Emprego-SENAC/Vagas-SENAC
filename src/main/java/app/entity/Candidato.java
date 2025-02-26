@@ -56,6 +56,5 @@ public class Candidato {
 	@JsonIgnoreProperties("candidatos")
 	private List<Vagas> vagas;
 	
-	
 
 }
