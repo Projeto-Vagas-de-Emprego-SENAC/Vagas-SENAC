@@ -15,6 +15,11 @@ public class CandidatoService {
 	
 	public String save(Candidato candidato) {
 		
+		Candidato cand = this.candidatoRepository.findByCpf(candidato.getCpf());
+		if(cand != null) {
+			throw new RuntimeException("Ja esxiste um aluno cadastrado com o "+cand.getCpf());
+		}
+		
 		this.candidatoRepository.save(candidato);
 		
 		return "o Candidato " + candidato.getNome() + " foi salvo com sucesso";

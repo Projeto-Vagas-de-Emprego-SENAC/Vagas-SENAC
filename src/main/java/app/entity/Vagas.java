@@ -48,6 +48,7 @@ public class Vagas {
 	private String tipo;
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
 	private LocalDate dataAnuncio;
+	private Boolean status;
 	private String nivelExperiencia;
 
 	@NotNull

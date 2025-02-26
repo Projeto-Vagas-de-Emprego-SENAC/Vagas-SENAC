@@ -5,5 +5,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import app.entity.Candidato;
 
 public interface CandidatoRepository extends JpaRepository<Candidato, Long> {
+	public Candidato findByCpf(String cpf);
 
 }
