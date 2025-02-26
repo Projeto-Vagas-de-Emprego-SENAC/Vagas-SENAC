@@ -46,5 +46,13 @@ public class EmpregadorService {
 		this.empregadorRepository.deleteById(id);
 		return "O Empregador foi deletado";
 	}
+	
+	 public List<Empregador> buscarPorNome(String nome) {
+	        return empregadorRepository.findByNome(nome);
+	    }
+
+	    public List<Empregador> buscarPorNomeContendo(String nome) {
+	        return empregadorRepository.findByNomeContaining(nome);
+	    }
 
 }
