@@ -53,12 +53,13 @@ public class EmpregadorService {
 		return "O Empregador foi deletado";
 	}
 	
-	 public List<Empregador> buscarPorNome(String nome) {
-	        return empregadorRepository.findByNome(nome);
+	 public List<Empregador> findByNomeFantasia(String nomeFantasia) {
+	        return empregadorRepository.findByNomeFantasia(nomeFantasia);
 	    }
 
-	    public List<Empregador> buscarPorNomeContendo(String nome) {
-	        return empregadorRepository.findByNomeContaining(nome);
+	    public List<Empregador> findByNomeFantasiaContaining(String nomeFantasia) {
+	        return empregadorRepository.findByNomeFantasiaContaining(nomeFantasia);
 	    }
 
-}
+		}
+
