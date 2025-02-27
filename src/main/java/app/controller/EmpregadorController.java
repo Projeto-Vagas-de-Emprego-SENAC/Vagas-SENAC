@@ -86,14 +86,14 @@ public class EmpregadorController {
 			return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
 		}
 	}
-	 @GetMapping("/findByNome")
-	    public List<Empregador> findByNome(@RequestParam String nome) {
-	        return empregadorService.findByNome(nome);
+	 @GetMapping("/findByNomeFantasia")
+	    public List<Empregador> findByNomeFantasia(@RequestParam String nomeFantasia) {
+	        return empregadorService.findByNomeFantasia(nomeFantasia);
 	    }
 
-	    @GetMapping("/findByNomeContaining")
-	    public List<Empregador> findByNomeContaining(@RequestParam String nome) {
-	        return empregadorService.findByNomeContaining(nome);
+	    @GetMapping("/findByNomeFantasiaContaining")
+	    public List<Empregador> findByNomeFantasiaContaining(@RequestParam String nomeFantasia) {
+	        return empregadorService.findByNomeFantasiaContaining(nomeFantasia);
 	    }
 
 }

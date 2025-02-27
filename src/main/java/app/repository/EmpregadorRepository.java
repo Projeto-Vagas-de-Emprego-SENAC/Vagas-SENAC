@@ -8,7 +8,7 @@ import app.entity.Empregador;
 
 public interface EmpregadorRepository extends JpaRepository<Empregador, Long> {
 	
-	List<Empregador> findByNome(String nome);
-    List<Empregador> findByNomeContaining(String nome);
+	List<Empregador> findByNomeFantasia(String nomeFantasia);
+    List<Empregador> findByNomeFantasiaContaining(String nomeFantasia);
 
 }
