@@ -37,7 +37,7 @@ public class EmpregadorController {
 			return new ResponseEntity<>(mensagem, HttpStatus.OK);
 			
 		}catch (Exception e){
-			return new ResponseEntity<>("Deu erro!",HttpStatus.BAD_REQUEST);
+			return new ResponseEntity<>("Deu erro!"+e.getMessage(),HttpStatus.BAD_REQUEST);
 		}
 	}
 	

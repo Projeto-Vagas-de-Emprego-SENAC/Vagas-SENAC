@@ -16,6 +16,11 @@ public class EnderecoService {
 	
 	public String save(Endereco endereco) {
 		
+		if(endereco.getCidade() == null || endereco.getRua() == null || endereco.getNumero() == null) {
+			endereco.setCadatroCompleto(false);
+		}else
+			endereco.setCadatroCompleto(true);
+		
 		this.enderecoRepository.save(endereco);
 		
 		return "o Endereco " + endereco.getRua() + " foi salvo com sucesso";

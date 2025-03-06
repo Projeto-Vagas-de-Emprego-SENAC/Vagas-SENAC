@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import app.entity.Candidato;
@@ -35,7 +36,7 @@ public class CandidatoController {
 			return new ResponseEntity<>(mensagem, HttpStatus.OK);
 			
 		}catch (Exception e){
-			return new ResponseEntity<>("Deu erro!",HttpStatus.BAD_REQUEST);
+			return new ResponseEntity<>("Deu erro!"+e.getMessage(),HttpStatus.BAD_REQUEST);
 		}
 	}
 	
@@ -82,6 +83,19 @@ public class CandidatoController {
 			
 		}catch (Exception e){
 			return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+		}
+	}
+	
+	@PostMapping("/inscricao")
+	public ResponseEntity<String> inscricao(@RequestParam long idCandidato, @RequestParam long idVaga){
+		try {
+
+			String mensagem = this.candidatoService.inscricao(idCandidato, idVaga);
+
+			return new ResponseEntity<>(mensagem, HttpStatus.OK);
+			
+		}catch (Exception e){
+			return new ResponseEntity<>("Deu erro!",HttpStatus.BAD_REQUEST);
 		}
 	}
 

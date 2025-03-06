@@ -3,12 +3,9 @@ package app.entity;
 import java.time.LocalDate;
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -16,10 +13,9 @@ import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
+import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
-import jakarta.persistence.JoinTable;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -40,7 +36,7 @@ public class Vagas {
 	private String titulo;
 	@NotBlank (message = "Descrição não pode estar vazio")
 	private String descricao;
-	@NotBlank (message = "Salario não pode estar vazio")
+	@Min(value = 500, message = "valor nao pode ser menor que 500")
 	private float salario;
 	@NotBlank (message = "Requisitos não pode estar vazio")
 	private String requisito;
@@ -48,7 +44,7 @@ public class Vagas {
 	private String tipo;
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
 	private LocalDate dataAnuncio;
-	private Boolean status;
+	private boolean status;
 	private String nivelExperiencia;
 
 	@NotNull

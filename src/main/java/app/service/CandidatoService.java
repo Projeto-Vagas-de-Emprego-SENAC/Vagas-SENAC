@@ -20,6 +20,8 @@ public class CandidatoService {
 			throw new RuntimeException("Ja esxiste um aluno cadastrado com o "+cand.getCpf());
 		}
 		
+		
+		
 		this.candidatoRepository.save(candidato);
 		
 		return "o Candidato " + candidato.getNome() + " foi salvo com sucesso";
@@ -49,5 +51,12 @@ public class CandidatoService {
 	public String delete(long id) {
 		this.candidatoRepository.deleteById(id);
 		return "O Candidato foi deletado";
+	}
+	
+	public String inscricao(long idCandidato, long idVaga) {
+		this.candidatoRepository.inscricao(idCandidato, idVaga);
+		
+		return "inscricao realizada com sucesso";
+		
 	}
 }
