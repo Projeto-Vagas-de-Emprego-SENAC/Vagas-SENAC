@@ -20,7 +20,7 @@ import jakarta.validation.Valid;
 
 
 @RestController
-@RequestMapping("/api/turma")
+@RequestMapping("/api/contato")
 public class ContatoController {
 	
 	@Autowired
