@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import app.entity.Endereco;
 import app.entity.Vagas;
 
 public interface VagasRepository extends JpaRepository<Vagas, Long> {
@@ -22,7 +23,6 @@ public interface VagasRepository extends JpaRepository<Vagas, Long> {
 	public List<Vagas> findByTipo(String tipo);
 	
 	public List<Vagas> findByNivelExperiencia(String nivelExperiencia);
-	
 	
 
 }

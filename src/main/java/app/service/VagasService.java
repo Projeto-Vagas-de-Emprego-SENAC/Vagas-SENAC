@@ -6,8 +6,11 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import app.entity.Candidato;
+import app.entity.Empregador;
+import app.entity.Endereco;
 import app.entity.Vagas;
+import app.repository.EmpregadorRepository;
+import app.repository.EnderecoRepository;
 import app.repository.VagasRepository;
 
 @Service
@@ -16,10 +19,33 @@ public class VagasService {
 	@Autowired
 	private VagasRepository vagasRepository;
 	
+	@Autowired 
+	private EnderecoRepository enderecoRepository;
+	@Autowired 
+	private EmpregadorRepository empregadorRepository;
+	
 	public String save(Vagas vagas) {
+	/*	Empregador emp = this.empregadorRepository.findById(vagas.getEmpregador().getId()).get();
+		List<Endereco> enderecos = emp.getEnderecos();
 		
+		for(int i = 0 ; i < enderecos.size(); i++) {
+			if(enderecos.get(i).getCidade() == null)
+				throw new RuntimeException("Nao e possivel cadastrar uma vaga com o endereco incompleto do empregador");
+		}
 		
+		*/
 		
+		Endereco endereco = this.enderecoRepository.findById(vagas.getEndereco().getId()).get();
+		
+		if(endereco == null) {
+			throw new RuntimeException("Nao e possivel cadastrar uma vaga sem endereco");
+
+		}
+		
+		if(!endereco.isCadatroCompleto()) {
+			throw new RuntimeException("Nao e possivel cadastrar uma vaga com o endereco incompleto");
+
+		}
 		this.vagasRepository.save(vagas);
 		
 		return "a Vaga " + vagas.getDescricao() + " foi salvo com sucesso";

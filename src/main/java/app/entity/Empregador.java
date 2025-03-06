@@ -37,11 +37,11 @@ public class Empregador {
 	@NotBlank(message = "CNPJ nao pode ser null")
 	private String cnpj;
 	
-	@NotEmpty
+	//@NotEmpty
 	@OneToMany
 	private List<Contato> contatos;
 	
-	@NotEmpty
+	//@NotEmpty
 	@OneToMany
 	private List<Endereco> enderecos;
 	

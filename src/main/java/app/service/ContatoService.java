@@ -16,6 +16,11 @@ public class ContatoService {
 	
 	public String save(Contato contato) {
 		
+		Contato cont = this.contatoRepository.findByEmail(contato.getEmail());
+		if(cont != null) {
+			throw new RuntimeException("Ja esxiste um proffesor cadastrado com o "+cont.getEmail());
+		}
+		
 		this.contatoRepository.save(contato);
 		
 		return "o Contato " + contato.getEmail() + " foi salvo com sucesso";

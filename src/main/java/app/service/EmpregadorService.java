@@ -6,8 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import app.entity.Empregador;
-import app.entity.Vagas;
+import app.entity.Endereco;
 import app.repository.EmpregadorRepository;
+import app.repository.EnderecoRepository;
 
 @Service
 public class EmpregadorService {
@@ -15,12 +16,17 @@ public class EmpregadorService {
 	@Autowired
 	private EmpregadorRepository empregadorRepository;
 	
+	@Autowired 
+	private EnderecoRepository enderecoRepository;
+	
 	public String save(Empregador empregador) {
 		
 		Empregador emp = this.empregadorRepository.findByCnpj(empregador.getCnpj());
 		if(emp != null) {
-			throw new RuntimeException("Ja esxiste um aluno cadastrado com o "+emp.getCnpj());
+			throw new RuntimeException("Ja esxiste um empregador cadastrado com o "+emp.getCnpj());
 		}
+		
+
 		
 		this.empregadorRepository.save(empregador);
 		

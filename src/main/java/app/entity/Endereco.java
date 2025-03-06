@@ -29,6 +29,7 @@ public class Endereco {
 	private String cidade;
 	@NotBlank (message = "CEP não pode estar vazia")
 	private String cep;
-	private int numero;
+	private Integer numero;
+	private boolean cadatroCompleto;
 	
 }
