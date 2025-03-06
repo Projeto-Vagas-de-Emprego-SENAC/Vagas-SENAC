@@ -18,7 +18,7 @@ public class ContatoService {
 		
 		Contato cont = this.contatoRepository.findByEmail(contato.getEmail());
 		if(cont != null) {
-			throw new RuntimeException("Ja esxiste um proffesor cadastrado com o "+cont.getEmail());
+			throw new RuntimeException("Ja existe um contato cadastrado com o "+cont.getEmail());
 		}
 		
 		this.contatoRepository.save(contato);

@@ -23,14 +23,14 @@ public class EmpregadorService {
 		
 		Empregador emp = this.empregadorRepository.findByCnpj(empregador.getCnpj());
 		if(emp != null) {
-			throw new RuntimeException("Ja esxiste um empregador cadastrado com o "+emp.getCnpj());
+			throw new RuntimeException("Ja existe um empregador cadastrado com o "+emp.getCnpj());
 		}
 		
 
 		
 		this.empregadorRepository.save(empregador);
 		
-		return "o Empregador " + empregador.getNomeFantasia() + empregador.getCnpj() + " foi salvo com sucesso";
+		return "o Empregador " + empregador.getNomeFantasia() + " de CNPJ: " + empregador.getCnpj() + " foi salvo com sucesso";
 	}
 	
 	public Empregador findById(long id) {

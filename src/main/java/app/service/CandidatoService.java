@@ -17,7 +17,7 @@ public class CandidatoService {
 		
 		Candidato cand = this.candidatoRepository.findByCpf(candidato.getCpf());
 		if(cand != null) {
-			throw new RuntimeException("Ja esxiste um aluno cadastrado com o "+cand.getCpf());
+			throw new RuntimeException("Ja existe um candidato cadastrado com o "+cand.getCpf());
 		}
 		
 		
