@@ -95,6 +95,8 @@ public class CandidatoController {
 			return new ResponseEntity<>(mensagem, HttpStatus.OK);
 			
 		}catch (Exception e){
+			e.printStackTrace();
+			System.out.println(e.getMessage());
 			return new ResponseEntity<>("Deu erro!",HttpStatus.BAD_REQUEST);
 		}
 	}
