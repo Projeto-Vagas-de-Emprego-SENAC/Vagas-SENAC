@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import app.entity.Candidato;
 import app.repository.CandidatoRepository;
+import jakarta.persistence.EntityNotFoundException;
 @Service
 public class CandidatoService {
 	
@@ -59,4 +60,8 @@ public class CandidatoService {
 		return "inscricao realizada com sucesso";
 		
 	}
+	public Candidato findByCpf(String cpf) {
+              throw new RuntimeException("Candidato não encontrado com CPF: " + cpf);
+   }
+	
 }

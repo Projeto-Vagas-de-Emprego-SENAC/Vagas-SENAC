@@ -100,5 +100,10 @@ public class CandidatoController {
 			return new ResponseEntity<>("Deu erro!",HttpStatus.BAD_REQUEST);
 		}
 	}
+	@GetMapping("/findByCpf/{cpf}")
+    public ResponseEntity<Candidato> findByCpf(@PathVariable String cpf) {
+        Candidato candidato = candidatoService.findByCpf(cpf);
+        return ResponseEntity.ok(candidato);
+    }
 
 }
