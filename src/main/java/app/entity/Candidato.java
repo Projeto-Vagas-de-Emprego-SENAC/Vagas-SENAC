@@ -40,16 +40,18 @@ public class Candidato {
 	@CPF
 	@NotBlank(message = "CPF nao pode ser null")
 	private String cpf;
-	//@NotBlank(message = "Data de Nascimento nao pode ser null")
+	@NotBlank(message = "Data de Nascimento nao pode ser null")
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
 	private LocalDate dataNascimento;
 	
-	//@NotEmpty
+	//@NotEmpty(message = "Candidato precisa de um contato")
 	@OneToMany
+	@JsonIgnoreProperties("candidato")
 	private List<Contato> contatos;
 	
-	//@NotEmpty
+	//@NotEmpty(message = "Candidato precisa de um endereço")
 	@OneToMany
+	@JsonIgnoreProperties("candidato")
 	private List<Endereco> enderecos;
 	
 	@ManyToMany

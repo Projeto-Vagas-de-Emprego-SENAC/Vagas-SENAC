@@ -35,17 +35,18 @@ public class VagasService {
 		
 		*/
 		
-		Endereco endereco = this.enderecoRepository.findById(vagas.getEndereco().getId()).get();
-		
-		if(endereco == null) {
-			throw new RuntimeException("Nao e possivel cadastrar uma vaga sem endereco");
-
-		}
-		
-		if(!endereco.isCadatroCompleto()) {
-			throw new RuntimeException("Nao e possivel cadastrar uma vaga com o endereco incompleto");
-
-		}
+		//arrumar isso aqui
+//		Endereco endereco = this.enderecoRepository.findById(vagas.getEnderecos().getId()).get();
+//		
+//		if(endereco == null) {
+//			throw new RuntimeException("Nao e possivel cadastrar uma vaga sem endereco");
+//
+//		}
+//		
+//		if(!endereco.isCadatroCompleto()) {
+//			throw new RuntimeException("Nao e possivel cadastrar uma vaga com o endereco incompleto");
+//
+//		}
 		this.vagasRepository.save(vagas);
 		
 		return "a Vaga " + vagas.getDescricao() + " foi salvo com sucesso";

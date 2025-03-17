@@ -37,12 +37,14 @@ public class Empregador {
 	@NotBlank(message = "CNPJ nao pode ser null")
 	private String cnpj;
 	
-	//@NotEmpty
+	//@NotEmpty(message = "Empregador precisa ter um contato")
 	@OneToMany
+	@JsonIgnoreProperties("empregador")
 	private List<Contato> contatos;
 	
-	//@NotEmpty
+	//@NotEmpty(message = "Empregador precisa de um endereço")
 	@OneToMany
+	@JsonIgnoreProperties("empregador")
 	private List<Endereco> enderecos;
 	
 	@OneToMany(mappedBy = "empregador")

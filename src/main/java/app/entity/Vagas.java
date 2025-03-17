@@ -47,7 +47,7 @@ public class Vagas {
 	private boolean status;
 	private String nivelExperiencia;
 
-	@NotNull
+	@NotNull(message = "A Vaga precisa de um empregador existente")
 	@ManyToOne
 	@JsonIgnoreProperties("vagas")
 	private Empregador empregador;
@@ -56,8 +56,9 @@ public class Vagas {
 	@JsonIgnoreProperties("vagas")
 	private List<Candidato> candidatos;
 	
-	//@NotEmpty
+	//@NotEmpty(message = "A Vaga precisa de um endereço")
 	@OneToOne
-	private Endereco endereco;
+	@JsonIgnoreProperties("vagas")
+	private Endereco enderecos;
 	
 }
