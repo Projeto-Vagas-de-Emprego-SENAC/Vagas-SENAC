@@ -37,7 +37,7 @@ public class Candidato {
 	private long id;
 	@NotBlank(message = "nome nao pode ser null")
 	private String nome;
-	@CPF
+	@CPF (message = "CPF tem que ser validado")
 	@NotBlank(message = "CPF nao pode ser null")
 	private String cpf;
 	@NotBlank(message = "Data de Nascimento nao pode ser null")

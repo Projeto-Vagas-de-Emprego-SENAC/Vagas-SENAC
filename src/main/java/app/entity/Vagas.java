@@ -56,7 +56,6 @@ public class Vagas {
 	@JsonIgnoreProperties("vagas")
 	private List<Candidato> candidatos;
 	
-	//@NotEmpty(message = "A Vaga precisa de um endereço")
 	@OneToOne
 	@JsonIgnoreProperties("vagas")
 	private Endereco enderecos;
