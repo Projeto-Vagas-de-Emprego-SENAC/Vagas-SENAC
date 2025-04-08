@@ -3,16 +3,8 @@ package app.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import app.entity.Endereco;
 import app.service.EnderecoService;
@@ -21,111 +13,61 @@ import jakarta.validation.Valid;
 @RestController
 @RequestMapping("/api/endereco")
 public class EnderecoController {
-	
-	@Autowired
-	private EnderecoService enderecoService;
 
-	
-	@PostMapping("/save")
-	public ResponseEntity<String> save(@RequestBody Endereco endereco){
-		try {
+    @Autowired
+    private EnderecoService enderecoService;
 
-			String mensagem = this.enderecoService.save(endereco);
+    @PostMapping("/save")
+    public ResponseEntity<String> save(@RequestBody Endereco endereco) {
+        String mensagem = this.enderecoService.save(endereco);
+        return ResponseEntity.ok(mensagem);
+    }
 
-			return new ResponseEntity<>(mensagem, HttpStatus.OK);
-			
-		}catch (Exception e){
-			return new ResponseEntity<>("Deu erro!",HttpStatus.BAD_REQUEST);
-		}
-	}
-	
-	@DeleteMapping("/delete/{id}")
-	public ResponseEntity<String> delete(@PathVariable long id){
-		try {
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<String> delete(@PathVariable long id) {
+        String mensagem = this.enderecoService.delete(id);
+        return ResponseEntity.ok(mensagem);
+    }
 
-			String mensagem = this.enderecoService.delete(id);
+    @GetMapping("/findById/{id}")
+    public ResponseEntity<Endereco> findById(@PathVariable long id) {
+        Endereco endereco = this.enderecoService.findById(id);
+        return ResponseEntity.ok(endereco);
+    }
 
-			return new ResponseEntity<>(mensagem, HttpStatus.OK);
-			
-		}catch (Exception e){
-			return new ResponseEntity<>("Deu erro!",HttpStatus.BAD_REQUEST);
-		}
-	}
-	@GetMapping("/findById/{id}")
-	public ResponseEntity<Endereco>findById(@PathVariable long id) {
+    @PutMapping("/update/{id}")
+    public ResponseEntity<String> update(@Valid @PathVariable long id, @RequestBody Endereco endereco) {
+        String mensagem = this.enderecoService.update(endereco, id);
+        return ResponseEntity.ok(mensagem);
+    }
 
-		try {
-			Endereco endereco = this.enderecoService.findById(id);
-			return new ResponseEntity<>(endereco, HttpStatus.OK);
-			
-		}catch (Exception e){
-			return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
-		}
-	}
-	@PutMapping("/update/{id}")
-	public ResponseEntity<String> update(@Valid @PathVariable long id, @RequestBody Endereco endereco){
-		try {
+    @GetMapping("/findAll")
+    public ResponseEntity<List<Endereco>> findAll() {
+        List<Endereco> lista = this.enderecoService.findAll();
+        return ResponseEntity.ok(lista);
+    }
 
-			String mensagem = this.enderecoService.update(endereco, id);
+    @GetMapping("/findByCidade")
+    public ResponseEntity<List<Endereco>> findByCidade(@RequestParam String cidade) {
+        List<Endereco> lista = this.enderecoService.findByCidade(cidade);
+        return ResponseEntity.ok(lista);
+    }
 
-			return new ResponseEntity<>(mensagem, HttpStatus.OK);
-			
-		}catch (Exception e){
-			return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
-		}
-	}
-	@GetMapping("/findAll")
-	public ResponseEntity<List<Endereco>> findAll(){
-		try {
-			List<Endereco> lista = this.enderecoService.findAll();
-			return new ResponseEntity<>(lista, HttpStatus.OK);
-			
-		}catch (Exception e){
-			return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
-		}
-	}
-	
-	@GetMapping("/findByCidade")
-	public ResponseEntity<List<Endereco>> findByCidade(String cidade){
-		try {
-			List<Endereco> lista = this.enderecoService.findByCidade(cidade);
-			return new ResponseEntity<>(lista, HttpStatus.OK);
-			
-		}catch (Exception e){
-			return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
-		}
-	}
-	@GetMapping("/findByEstado")
-	public ResponseEntity<List<Endereco>> findByEstado(String estado){
-		try {
-			List<Endereco> lista = this.enderecoService.findByEstado(estado);
-			return new ResponseEntity<>(lista, HttpStatus.OK);
-			
-		}catch (Exception e){
-			return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
-		}
-		}
-	
-	@GetMapping("/findByCidadeContaining")
-	public ResponseEntity<List<Endereco>> findByCidadeContaining(String cidade){
-		try {
-			List<Endereco> lista = this.enderecoService.findByCidadeContaining(cidade);
-			return new ResponseEntity<>(lista, HttpStatus.OK);
-			
-		}catch (Exception e){
-			return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
-		}
-	}
+    @GetMapping("/findByEstado")
+    public ResponseEntity<List<Endereco>> findByEstado(@RequestParam String estado) {
+        List<Endereco> lista = this.enderecoService.findByEstado(estado);
+        return ResponseEntity.ok(lista);
+    }
 
-					@GetMapping("/findByEstadoContaining")
-			public ResponseEntity<List<Endereco>> findByEstadoContaining(String estado){
-				try {
-					List<Endereco> lista = this.enderecoService.findByEstadoContaining(estado);
-					return new ResponseEntity<>(lista, HttpStatus.OK);
-					
-				}catch (Exception e){
-					return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
-				}
+    @GetMapping("/findByCidadeContaining")
+    public ResponseEntity<List<Endereco>> findByCidadeContaining(@RequestParam String cidade) {
+        List<Endereco> lista = this.enderecoService.findByCidadeContaining(cidade);
+        return ResponseEntity.ok(lista);
+    }
 
-					}
-		}
+    @GetMapping("/findByEstadoContaining")
+    public ResponseEntity<List<Endereco>> findByEstadoContaining(@RequestParam String estado) {
+        List<Endereco> lista = this.enderecoService.findByEstadoContaining(estado);
+        return ResponseEntity.ok(lista);
+    }
+}
