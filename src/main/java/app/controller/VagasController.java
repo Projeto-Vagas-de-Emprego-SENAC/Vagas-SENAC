@@ -13,6 +13,7 @@ import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/api/vagas")
+@CrossOrigin ("*")
 public class VagasController {
 
     @Autowired
