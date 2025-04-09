@@ -45,12 +45,12 @@ public class Candidato {
 	private LocalDate dataNascimento;
 	
 	//@NotEmpty(message = "Candidato precisa de um contato")
-	@OneToMany
+	@OneToMany(mappedBy = "candidato")
 	@JsonIgnoreProperties("candidato")
 	private List<Contato> contatos;
 	
 	//@NotEmpty(message = "Candidato precisa de um endereço")
-	@OneToMany
+	@OneToMany(mappedBy = "candidato")
 	@JsonIgnoreProperties("candidato")
 	private List<Endereco> enderecos;
 	

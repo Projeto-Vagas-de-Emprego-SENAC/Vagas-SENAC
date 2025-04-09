@@ -47,7 +47,7 @@ public class Endereco {
 	@JsonIgnoreProperties("endereco")
 	private Empregador empregador;
 	
-	@OneToOne
+	@OneToOne(mappedBy = "endereco")
 	@JsonIgnoreProperties("endereco")
 	private Vagas vagas;
 	

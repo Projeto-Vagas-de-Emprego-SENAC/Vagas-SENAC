@@ -38,11 +38,11 @@ public class Empregador {
 	private String cnpj;
 	
 	
-	@OneToMany
+	@OneToMany(mappedBy = "empregador")
 	@JsonIgnoreProperties("empregador")
 	private List<Contato> contatos;
 	
-	@OneToMany
+	@OneToMany(mappedBy = "empregador")
 	@JsonIgnoreProperties("empregador")
 	private List<Endereco> enderecos;
 	
