@@ -36,19 +36,19 @@ public class Endereco {
 	private String cidade;
 	@NotBlank (message = "CEP não pode estar vazia")
 	private String cep;
-	private Integer numero;
+	private String numero;
 	private boolean cadatroCompleto;
 	
 	@ManyToOne
-	@JsonIgnoreProperties("endereco")
+	@JsonIgnoreProperties("enderecos")
 	private Candidato candidato;
 	
 	@ManyToOne
-	@JsonIgnoreProperties("endereco")
+	@JsonIgnoreProperties("enderecos")
 	private Empregador empregador;
 	
 	@OneToOne
-	@JsonIgnoreProperties("endereco")
+	@JsonIgnoreProperties("enderecos")
 	private Vagas vagas;
 	
 	

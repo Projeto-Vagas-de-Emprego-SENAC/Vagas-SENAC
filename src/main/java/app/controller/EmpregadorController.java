@@ -12,6 +12,7 @@ import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/api/empregador")
+@CrossOrigin ("*")
 public class EmpregadorController {
 
     @Autowired

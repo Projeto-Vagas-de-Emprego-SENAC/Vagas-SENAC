@@ -6,6 +6,7 @@ import org.hibernate.validator.constraints.br.CNPJ;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -38,12 +39,12 @@ public class Empregador {
 	private String cnpj;
 	
 	//@NotEmpty(message = "Empregador precisa ter um contato")
-	@OneToMany
+	@OneToMany(mappedBy = "empregador")
 	@JsonIgnoreProperties("empregador")
 	private List<Contato> contatos;
 	
 	//@NotEmpty(message = "Empregador precisa de um endereço")
-	@OneToMany
+	@OneToMany(mappedBy = "empregador", cascade = CascadeType.ALL)
 	@JsonIgnoreProperties("empregador")
 	private List<Endereco> enderecos;
 	

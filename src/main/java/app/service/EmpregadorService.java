@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import app.entity.Empregador;
-import app.entity.Endereco;
 import app.repository.EmpregadorRepository;
 import app.repository.EnderecoRepository;
 
@@ -21,12 +20,16 @@ public class EmpregadorService {
 	
 	public String save(Empregador empregador) {
 		
-		Empregador emp = this.empregadorRepository.findByCnpj(empregador.getCnpj());
-		if(emp != null) {
-			throw new RuntimeException("Ja existe um empregador cadastrado com o "+emp.getCnpj());
+		List<Empregador> emp = this.empregadorRepository.findByCnpj(empregador.getCnpj());
+		if(!emp.isEmpty()) {
+			throw new RuntimeException("Ja existe um empregador cadastrado com o "+emp.get(0).getCnpj());
 		}
 		
-
+		if(empregador.getEnderecos() != null) {
+			for(int i=0; i<empregador.getEnderecos().size(); i++) {
+				empregador.getEnderecos().get(i).setEmpregador(empregador);
+			}
+		}
 		
 		this.empregadorRepository.save(empregador);
 		
