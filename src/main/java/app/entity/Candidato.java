@@ -38,7 +38,7 @@ public class Candidato {
 	private long id;
 	@NotBlank(message = "nome nao pode ser null")
 	private String nome;
-	@CPF
+	@CPF (message = "CPF tem que ser validado")
 	@NotBlank(message = "CPF nao pode ser null")
 	private String cpf;
 	@NotNull(message = "Data de Nascimento nao pode ser null")
@@ -46,12 +46,12 @@ public class Candidato {
 	private LocalDate dataNascimento;
 	
 	//@NotEmpty(message = "Candidato precisa de um contato")
-	@OneToMany
+	@OneToMany(mappedBy = "candidato")
 	@JsonIgnoreProperties("candidato")
 	private List<Contato> contatos;
 	
 	//@NotEmpty(message = "Candidato precisa de um endereço")
-	@OneToMany
+	@OneToMany(mappedBy = "candidato")
 	@JsonIgnoreProperties("candidato")
 	private List<Endereco> enderecos;
 	
