@@ -45,6 +45,15 @@ public class EmpregadorService {
 	
 	public String update(Empregador empregador, long id) {
 		empregador.setId(id);
+		
+		
+		if(empregador.getEnderecos() != null) {
+			for(int i=0; i<empregador.getEnderecos().size(); i++) {
+				empregador.getEnderecos().get(i).setEmpregador(empregador);
+			}
+		}
+		
+		
 		this.empregadorRepository.save(empregador);
 		return empregador.getNomeFantasia() + " foi atualizado com sucesso!";
 	}

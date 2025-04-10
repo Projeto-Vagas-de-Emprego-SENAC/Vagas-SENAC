@@ -39,12 +39,12 @@ public class Empregador {
 	private String cnpj;
 	
 	//@NotEmpty(message = "Empregador precisa ter um contato")
-	@OneToMany(mappedBy = "empregador")
+	@OneToMany(mappedBy = "empregador", cascade = CascadeType.ALL, orphanRemoval = true)
 	@JsonIgnoreProperties("empregador")
 	private List<Contato> contatos;
 	
 	//@NotEmpty(message = "Empregador precisa de um endereço")
-	@OneToMany(mappedBy = "empregador", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "empregador", cascade = CascadeType.ALL, orphanRemoval = true)
 	@JsonIgnoreProperties("empregador")
 	private List<Endereco> enderecos;
 	

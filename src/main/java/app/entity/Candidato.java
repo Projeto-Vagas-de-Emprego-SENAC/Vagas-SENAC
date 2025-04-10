@@ -8,6 +8,7 @@ import org.hibernate.validator.constraints.br.CPF;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -46,12 +47,12 @@ public class Candidato {
 	private LocalDate dataNascimento;
 	
 	//@NotEmpty(message = "Candidato precisa de um contato")
-	@OneToMany(mappedBy = "candidato")
+	@OneToMany(mappedBy = "candidato", cascade = CascadeType.ALL, orphanRemoval = true)
 	@JsonIgnoreProperties("candidato")
 	private List<Contato> contatos;
 	
 	//@NotEmpty(message = "Candidato precisa de um endereço")
-	@OneToMany(mappedBy = "candidato")
+	@OneToMany(mappedBy = "candidato", cascade = CascadeType.ALL, orphanRemoval = true)
 	@JsonIgnoreProperties("candidato")
 	private List<Endereco> enderecos;
 	
