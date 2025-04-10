@@ -36,10 +36,10 @@ public class Contato {
 	private String email;
 	
 	@ManyToOne
-	@JsonIgnoreProperties("contato")
+	@JsonIgnoreProperties("contatos")
 	private Candidato candidato;
 	
 	@ManyToOne
-	@JsonIgnoreProperties("contato")
+	@JsonIgnoreProperties("contatos")
 	private Empregador empregador;
 }

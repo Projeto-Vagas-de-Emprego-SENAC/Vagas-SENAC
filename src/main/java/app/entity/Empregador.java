@@ -38,21 +38,13 @@ public class Empregador {
 	@NotBlank(message = "CNPJ nao pode ser null")
 	private String cnpj;
 	
-<<<<<<< HEAD
 	//@NotEmpty(message = "Empregador precisa ter um contato")
-=======
-	
->>>>>>> ab5f08f1c7f5a4ad7bb62d4ec56359f15f02ff92
-	@OneToMany(mappedBy = "empregador")
+	@OneToMany(mappedBy = "empregador", cascade = CascadeType.ALL, orphanRemoval = true)
 	@JsonIgnoreProperties("empregador")
 	private List<Contato> contatos;
 	
-<<<<<<< HEAD
 	//@NotEmpty(message = "Empregador precisa de um endereço")
-	@OneToMany(mappedBy = "empregador", cascade = CascadeType.ALL)
-=======
-	@OneToMany(mappedBy = "empregador")
->>>>>>> ab5f08f1c7f5a4ad7bb62d4ec56359f15f02ff92
+	@OneToMany(mappedBy = "empregador", cascade = CascadeType.ALL, orphanRemoval = true)
 	@JsonIgnoreProperties("empregador")
 	private List<Endereco> enderecos;
 	

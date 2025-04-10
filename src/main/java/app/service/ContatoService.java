@@ -21,6 +21,9 @@ public class ContatoService {
 			throw new RuntimeException("Ja existe um contato cadastrado com o "+cont.getEmail());
 		}
 		
+		
+		
+		
 		this.contatoRepository.save(contato);
 		
 		return "o Contato " + contato.getEmail() + " foi salvo com sucesso";
