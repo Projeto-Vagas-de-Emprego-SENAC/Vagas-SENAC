@@ -78,6 +78,14 @@ public class EmpregadorService {
 	    public List<Empregador> findByNomeFantasiaContaining(String nomeFantasia) {
 	        return empregadorRepository.findByNomeFantasiaContaining(nomeFantasia);
 	    }
+	    
+	    
+	    public List<Empregador> findByCnpj(String cnpj) {
+	        return empregadorRepository.findByCnpj(cnpj);
+	    }
+	    
+	    
+	    
 
 		}
 
