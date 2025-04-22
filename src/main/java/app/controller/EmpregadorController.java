@@ -57,9 +57,9 @@ public class EmpregadorController {
     public List<Empregador> findByNomeFantasiaContaining(@RequestParam String nomeFantasia) {
         return empregadorService.findByNomeFantasiaContaining(nomeFantasia);
     }
-    @GetMapping("/findByCnpj")
+    @GetMapping("/findByCnpjContaining")
     public List<Empregador> findByCnpj(@RequestParam String cnpj) {
-        return empregadorService.findByCnpj(cnpj);
+        return empregadorService.findByCnpjContaining(cnpj);
     }
     
 }

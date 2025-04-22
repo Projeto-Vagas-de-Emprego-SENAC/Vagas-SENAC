@@ -10,7 +10,7 @@ public interface EmpregadorRepository extends JpaRepository<Empregador, Long> {
 	
 	List<Empregador> findByNomeFantasia(String nomeFantasia);
     List<Empregador> findByNomeFantasiaContaining(String nomeFantasia);
-    public List<Empregador> findByCnpj(String cnpj);
+    public List<Empregador> findByCnpjContaining(String cnpj);
 
 	
 
