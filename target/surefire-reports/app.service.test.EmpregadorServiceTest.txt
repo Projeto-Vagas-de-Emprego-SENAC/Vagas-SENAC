@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: app.service.test.EmpregadorServiceTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 15.89 s -- in app.service.test.EmpregadorServiceTest

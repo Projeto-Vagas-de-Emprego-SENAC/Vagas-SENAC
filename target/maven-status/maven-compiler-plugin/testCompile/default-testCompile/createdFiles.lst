@@ -1,0 +1,3 @@
+app\service\test\EmpregadorServiceTest.class
+app\controller\test\EmpregadorControllerTest.class
+app\vagas\VagasApplicationTests.class
