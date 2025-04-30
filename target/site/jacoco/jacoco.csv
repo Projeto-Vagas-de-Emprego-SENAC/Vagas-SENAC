@@ -1,13 +1,13 @@
 GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
 vagas,app,AppMain,5,3,0,0,2,1,1,1,1,1
-vagas,app.service,EnderecoService,88,3,6,0,22,1,12,1,9,1
-vagas,app.service,VagasService,80,3,0,0,18,1,12,1,12,1
-vagas,app.service,CandidatoService,113,3,10,0,23,1,12,1,7,1
+vagas,app.service,EnderecoService,66,25,3,3,18,5,11,2,8,2
+vagas,app.service,VagasService,71,12,0,0,16,3,11,2,11,2
+vagas,app.service,CandidatoService,42,77,8,4,5,19,6,8,0,8
 vagas,app.service,EmpregadorService,95,26,8,2,18,6,12,2,7,2
 vagas,app.service,ContatoService,59,3,2,0,14,1,6,1,5,1
 vagas,app.controller,VagasController,83,3,0,0,17,1,12,1,12,1
 vagas,app.controller,CandidatoController,54,3,0,0,13,1,7,1,7,1
-vagas,app.controller,EmpregadorController,55,3,0,0,13,1,8,1,8,1
+vagas,app.controller,EmpregadorController,8,50,0,0,2,12,1,8,1,8
 vagas,app.controller,ContatoController,40,3,0,0,10,1,5,1,5,1
 vagas,app.controller,EnderecoController,72,3,0,0,18,1,9,1,9,1
 vagas,app.config,GlobalExceptionHandler,69,3,4,0,12,1,5,1,3,1

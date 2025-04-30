@@ -54,7 +54,7 @@ public class CandidatoServiceTest {
     
     @Test
     void testSaveCandidatoComSucesso() {
-        // Arrange
+    
         Candidato candidato = new Candidato();
         candidato.setNome("João");
         candidato.setCpf("12345678900");
@@ -62,10 +62,10 @@ public class CandidatoServiceTest {
         when(candidatoRepository.findByCpfContaining("12345678900"))
                 .thenReturn(Collections.emptyList());
 
-        // Act
+        
         String result = candidatoService.save(candidato);
 
-        // Assert
+        
         assertEquals("o Candidato João foi salvo com sucesso", result);
         verify(candidatoRepository, times(1)).save(candidato);
     }
@@ -105,8 +105,27 @@ public class CandidatoServiceTest {
         assertEquals(2, result.size());
         assertEquals("C1", result.get(0).getNome());
     }
-
     
+    @Test
+    void testFindByCpfContaining() {
+        Candidato c = new Candidato();
+        c.setCpf("99999999999");
+
+        when(candidatoRepository.findByCpfContaining("999"))
+                .thenReturn(Collections.singletonList(c));
+
+        List<Candidato> result = candidatoService.findByCpfContaining("999");
+
+        assertEquals(1, result.size());
+        assertEquals("99999999999", result.get(0).getCpf());
+    }
+
+    @Test
+    void testInscricao() {
+        String msg = candidatoService.inscricao(1L, 2L);
+        assertEquals("inscricao realizada com sucesso", msg);
+        verify(candidatoRepository).inscricao(1L, 2L);
+    }
     
 
 

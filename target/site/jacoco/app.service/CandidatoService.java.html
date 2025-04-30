@@ -15,65 +15,65 @@ import app.repository.CandidatoRepository;
 	
 	public String save(Candidato candidato) {
 		
-<span class="nc" id="L18">		List&lt;Candidato&gt; cand = this.candidatoRepository.findByCpfContaining(candidato.getCpf());</span>
-<span class="nc bnc" id="L19" title="All 2 branches missed.">		if(cand != null) {</span>
+<span class="fc" id="L18">		List&lt;Candidato&gt; cand = this.candidatoRepository.findByCpfContaining(candidato.getCpf());</span>
+<span class="pc bpc" id="L19" title="2 of 4 branches missed.">		if(cand != null &amp;&amp; !cand.isEmpty()) {</span>
 <span class="nc" id="L20">			throw new RuntimeException(&quot;Ja existe um candidato cadastrado com o &quot;+cand.get(0).getCpf());</span>
 		}
 		
-<span class="nc bnc" id="L23" title="All 2 branches missed.">		if(candidato.getEnderecos() != null) {</span>
+<span class="pc bpc" id="L23" title="1 of 2 branches missed.">		if(candidato.getEnderecos() != null) {</span>
 <span class="nc bnc" id="L24" title="All 2 branches missed.">			for(int i=0; i&lt;candidato.getEnderecos().size(); i++) {</span>
 <span class="nc" id="L25">				candidato.getEnderecos().get(i).setCandidato(candidato);</span>
 			}
 		}
 		
-<span class="nc" id="L29">		this.candidatoRepository.save(candidato);</span>
+<span class="fc" id="L29">		this.candidatoRepository.save(candidato);</span>
 		
-<span class="nc" id="L31">		return &quot;o Candidato &quot; + candidato.getNome() + &quot; foi salvo com sucesso&quot;;</span>
+<span class="fc" id="L31">		return &quot;o Candidato &quot; + candidato.getNome() + &quot; foi salvo com sucesso&quot;;</span>
 	}
 	
 	public Candidato findById(long id) {
 		
-<span class="nc" id="L36">		Candidato candidato = this.candidatoRepository.findById(id).get();</span>
+<span class="fc" id="L36">		Candidato candidato = this.candidatoRepository.findById(id).get();</span>
 		
-<span class="nc" id="L38">		return candidato;</span>
+<span class="fc" id="L38">		return candidato;</span>
 	}
 	
 	public String update(Candidato candidato, long id) {
-<span class="nc" id="L42">		candidato.setId(id);</span>
+<span class="fc" id="L42">		candidato.setId(id);</span>
 		
-<span class="nc bnc" id="L44" title="All 2 branches missed.">		if(candidato.getEnderecos() != null) {</span>
+<span class="pc bpc" id="L44" title="1 of 2 branches missed.">		if(candidato.getEnderecos() != null) {</span>
 <span class="nc bnc" id="L45" title="All 2 branches missed.">			for(int i=0; i&lt;candidato.getEnderecos().size(); i++) {</span>
 <span class="nc" id="L46">				candidato.getEnderecos().get(i).setCandidato(candidato);</span>
 			}
 		}
 		
 		
-<span class="nc" id="L51">		this.candidatoRepository.save(candidato);</span>
-<span class="nc" id="L52">		return candidato.getNome() + &quot; foi atualizado com sucesso!&quot;;</span>
+<span class="fc" id="L51">		this.candidatoRepository.save(candidato);</span>
+<span class="fc" id="L52">		return candidato.getNome() + &quot; foi atualizado com sucesso!&quot;;</span>
 	}
 	
 	public List&lt;Candidato&gt; findAll(){
 		
-<span class="nc" id="L57">		List&lt;Candidato&gt; lista = this.candidatoRepository.findAll();</span>
+<span class="fc" id="L57">		List&lt;Candidato&gt; lista = this.candidatoRepository.findAll();</span>
 
 
-<span class="nc" id="L60">		return lista;</span>
+<span class="fc" id="L60">		return lista;</span>
 	}
 	
 	public String delete(long id) {
-<span class="nc" id="L64">		this.candidatoRepository.deleteById(id);</span>
-<span class="nc" id="L65">		return &quot;O Candidato foi deletado&quot;;</span>
+<span class="fc" id="L64">		this.candidatoRepository.deleteById(id);</span>
+<span class="fc" id="L65">		return &quot;O Candidato foi deletado&quot;;</span>
 	}
 	
 	public String inscricao(long idCandidato, long idVaga) {
-<span class="nc" id="L69">		this.candidatoRepository.inscricao(idCandidato, idVaga);</span>
+<span class="fc" id="L69">		this.candidatoRepository.inscricao(idCandidato, idVaga);</span>
 		
-<span class="nc" id="L71">		return &quot;inscricao realizada com sucesso&quot;;</span>
+<span class="fc" id="L71">		return &quot;inscricao realizada com sucesso&quot;;</span>
 		
 	}
 	public List&lt;Candidato&gt; findByCpfContaining(String cpf) {
              
-<span class="nc" id="L76">		return candidatoRepository.findByCpfContaining(cpf);</span>
+<span class="fc" id="L76">		return candidatoRepository.findByCpfContaining(cpf);</span>
 		
 		
    }

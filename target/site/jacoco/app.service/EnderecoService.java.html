@@ -16,14 +16,14 @@ import app.repository.EnderecoRepository;
 	
 	public String save(Endereco endereco) {
 		
-<span class="nc bnc" id="L19" title="All 6 branches missed.">		if(endereco.getCidade() == null || endereco.getRua() == null || endereco.getNumero() == null) {</span>
-<span class="nc" id="L20">			endereco.setCadatroCompleto(false);</span>
+<span class="pc bpc" id="L19" title="3 of 6 branches missed.">		if(endereco.getCidade() == null || endereco.getRua() == null || endereco.getNumero() == null) {</span>
+<span class="fc" id="L20">			endereco.setCadatroCompleto(false);</span>
 		}else
 <span class="nc" id="L22">			endereco.setCadatroCompleto(true);</span>
 		
-<span class="nc" id="L24">		this.enderecoRepository.save(endereco);</span>
+<span class="fc" id="L24">		this.enderecoRepository.save(endereco);</span>
 		
-<span class="nc" id="L26">		return &quot;o Endereco &quot; + endereco.getRua() + &quot; foi salvo com sucesso&quot;;</span>
+<span class="fc" id="L26">		return &quot;o Endereco &quot; + endereco.getRua() + &quot; foi salvo com sucesso&quot;;</span>
 	}
 	
 	public Endereco findById(long id) {

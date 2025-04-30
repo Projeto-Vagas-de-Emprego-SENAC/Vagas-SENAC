@@ -1,3 +1,5 @@
 app\service\test\EmpregadorServiceTest.class
+app\service\test\CandidatoServiceTest.class
 app\controller\test\EmpregadorControllerTest.class
-app\vagas\VagasApplicationTests.class
+app\service\test\EnderecoServiceTest.class
+app\service\test\VagasServiceTest.class
