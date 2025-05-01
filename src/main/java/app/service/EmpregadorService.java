@@ -20,7 +20,7 @@ public class EmpregadorService {
 	
 	public String save(Empregador empregador) {
 		
-		List<Empregador> emp = this.empregadorRepository.findByCnpj(empregador.getCnpj());
+		List<Empregador> emp = this.empregadorRepository.findByCnpjContaining(empregador.getCnpj());
 		if(!emp.isEmpty()) {
 			throw new RuntimeException("Ja existe um empregador cadastrado com o "+emp.get(0).getCnpj());
 		}
@@ -80,8 +80,8 @@ public class EmpregadorService {
 	    }
 	    
 	    
-	    public List<Empregador> findByCnpj(String cnpj) {
-	        return empregadorRepository.findByCnpj(cnpj);
+	    public List<Empregador> findByCnpjContaining(String cnpj) {
+	        return empregadorRepository.findByCnpjContaining(cnpj);
 	    }
 	    
 	    

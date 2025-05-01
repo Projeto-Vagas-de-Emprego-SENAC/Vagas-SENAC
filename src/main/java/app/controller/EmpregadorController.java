@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import app.entity.Empregador;
@@ -13,13 +14,14 @@ import jakarta.validation.Valid;
 @RestController
 @RequestMapping("/api/empregador")
 @CrossOrigin ("*")
+@Validated
 public class EmpregadorController {
 
     @Autowired
     private EmpregadorService empregadorService;
 
     @PostMapping("/save")
-    public ResponseEntity<String> save(@RequestBody Empregador empregador) {
+    public ResponseEntity<String> save(@Valid @RequestBody Empregador empregador) {
         String mensagem = this.empregadorService.save(empregador);
         return ResponseEntity.ok(mensagem);
     }
@@ -57,9 +59,9 @@ public class EmpregadorController {
     public List<Empregador> findByNomeFantasiaContaining(@RequestParam String nomeFantasia) {
         return empregadorService.findByNomeFantasiaContaining(nomeFantasia);
     }
-    @GetMapping("/findByCnpj")
+    @GetMapping("/findByCnpjContaining")
     public List<Empregador> findByCnpj(@RequestParam String cnpj) {
-        return empregadorService.findByCnpj(cnpj);
+        return empregadorService.findByCnpjContaining(cnpj);
     }
     
 }
