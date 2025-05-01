@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.2" name="app.service.test.CandidatoServiceTest" time="0.935" tests="7" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.2" name="app.controller.test.EnderecoControllerTest" time="1.057" tests="9" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="17"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -49,7 +49,7 @@
     <property name="localRepository" value="C:\Users\mboch\.m2\repository"/>
     <property name="java.vendor.url.bug" value="https://github.com/adoptium/adoptium-support/issues"/>
     <property name="java.io.tmpdir" value="C:\Users\mboch\AppData\Local\Temp\"/>
-    <property name="com.zaxxer.hikari.pool_number" value="6"/>
+    <property name="com.zaxxer.hikari.pool_number" value="4"/>
     <property name="java.version" value="17.0.10"/>
     <property name="user.dir" value="C:\Users\mboch\Downloads\projetoSenac\Vagas-SENAC"/>
     <property name="os.arch" value="amd64"/>
@@ -66,9 +66,9 @@
     <property name="java.class.version" value="61.0"/>
     <property name="LOGGED_APPLICATION_NAME" value="[vagas] "/>
   </properties>
-  <testcase name="testFindAll" classname="app.service.test.CandidatoServiceTest" time="0.036">
-    <system-out><![CDATA[2025-04-30T22:06:56.851-03:00  INFO 15248 --- [vagas] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [app.service.test.CandidatoServiceTest]: CandidatoServiceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2025-04-30T22:06:56.867-03:00  INFO 15248 --- [vagas] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration app.AppMain for test class app.service.test.CandidatoServiceTest
+  <testcase name="cenarioFindByCidade" classname="app.controller.test.EnderecoControllerTest" time="0.009">
+    <system-out><![CDATA[2025-04-30T22:06:54.878-03:00  INFO 15248 --- [vagas] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [app.controller.test.EnderecoControllerTest]: EnderecoControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2025-04-30T22:06:54.880-03:00  INFO 15248 --- [vagas] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration app.AppMain for test class app.controller.test.EnderecoControllerTest
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -79,34 +79,36 @@
 
  :: Spring Boot ::                (v3.4.2)
 
-2025-04-30T22:06:56.894-03:00  INFO 15248 --- [vagas] [           main] app.service.test.CandidatoServiceTest    : Starting CandidatoServiceTest using Java 17.0.10 with PID 15248 (started by mboch in C:\Users\mboch\Downloads\projetoSenac\Vagas-SENAC)
-2025-04-30T22:06:56.894-03:00  INFO 15248 --- [vagas] [           main] app.service.test.CandidatoServiceTest    : No active profile set, falling back to 1 default profile: "default"
-2025-04-30T22:06:57.032-03:00  INFO 15248 --- [vagas] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-04-30T22:06:57.048-03:00  INFO 15248 --- [vagas] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 14 ms. Found 5 JPA repository interfaces.
-2025-04-30T22:06:57.207-03:00  INFO 15248 --- [vagas] [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-04-30T22:06:57.210-03:00  INFO 15248 --- [vagas] [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2025-04-30T22:06:57.221-03:00  INFO 15248 --- [vagas] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-04-30T22:06:57.225-03:00  INFO 15248 --- [vagas] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Starting...
-2025-04-30T22:06:57.245-03:00  INFO 15248 --- [vagas] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-6 - Added connection com.mysql.cj.jdbc.ConnectionImpl@376d3c05
-2025-04-30T22:06:57.245-03:00  INFO 15248 --- [vagas] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Start completed.
-2025-04-30T22:06:57.246-03:00  INFO 15248 --- [vagas] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
-	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-6)']
+2025-04-30T22:06:54.913-03:00  INFO 15248 --- [vagas] [           main] a.c.test.EnderecoControllerTest          : Starting EnderecoControllerTest using Java 17.0.10 with PID 15248 (started by mboch in C:\Users\mboch\Downloads\projetoSenac\Vagas-SENAC)
+2025-04-30T22:06:54.913-03:00  INFO 15248 --- [vagas] [           main] a.c.test.EnderecoControllerTest          : No active profile set, falling back to 1 default profile: "default"
+2025-04-30T22:06:55.083-03:00  INFO 15248 --- [vagas] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-04-30T22:06:55.099-03:00  INFO 15248 --- [vagas] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 14 ms. Found 5 JPA repository interfaces.
+2025-04-30T22:06:55.223-03:00  INFO 15248 --- [vagas] [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-04-30T22:06:55.227-03:00  INFO 15248 --- [vagas] [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-04-30T22:06:55.238-03:00  INFO 15248 --- [vagas] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-04-30T22:06:55.241-03:00  INFO 15248 --- [vagas] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Starting...
+2025-04-30T22:06:55.263-03:00  INFO 15248 --- [vagas] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-4 - Added connection com.mysql.cj.jdbc.ConnectionImpl@d8e591c
+2025-04-30T22:06:55.264-03:00  INFO 15248 --- [vagas] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Start completed.
+2025-04-30T22:06:55.267-03:00  INFO 15248 --- [vagas] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-4)']
 	Database driver: undefined/unknown
 	Database version: 8.0.41
 	Autocommit mode: undefined/unknown
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2025-04-30T22:06:57.409-03:00  INFO 15248 --- [vagas] [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-04-30T22:06:57.485-03:00  INFO 15248 --- [vagas] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-04-30T22:06:57.604-03:00  WARN 15248 --- [vagas] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-04-30T22:06:57.708-03:00  INFO 15248 --- [vagas] [           main] app.service.test.CandidatoServiceTest    : Started CandidatoServiceTest in 0.838 seconds (process running for 20.756)
+2025-04-30T22:06:55.453-03:00  INFO 15248 --- [vagas] [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-04-30T22:06:55.528-03:00  INFO 15248 --- [vagas] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-04-30T22:06:55.714-03:00  WARN 15248 --- [vagas] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-04-30T22:06:55.870-03:00  INFO 15248 --- [vagas] [           main] a.c.test.EnderecoControllerTest          : Started EnderecoControllerTest in 0.986 seconds (process running for 18.917)
 ]]></system-out>
   </testcase>
-  <testcase name="testFindById" classname="app.service.test.CandidatoServiceTest" time="0.004"/>
-  <testcase name="testInscricao" classname="app.service.test.CandidatoServiceTest" time="0.006"/>
-  <testcase name="testDelete" classname="app.service.test.CandidatoServiceTest" time="0.004"/>
-  <testcase name="testUpdate" classname="app.service.test.CandidatoServiceTest" time="0.006"/>
-  <testcase name="testFindByCpfContaining" classname="app.service.test.CandidatoServiceTest" time="0.004"/>
-  <testcase name="testSaveCandidatoComSucesso" classname="app.service.test.CandidatoServiceTest" time="0.005"/>
+  <testcase name="cenarioFindByEstado" classname="app.controller.test.EnderecoControllerTest" time="0.006"/>
+  <testcase name="cenarioFindAllEnderecos" classname="app.controller.test.EnderecoControllerTest" time="0.006"/>
+  <testcase name="cenarioSaveEndereco" classname="app.controller.test.EnderecoControllerTest" time="0.006"/>
+  <testcase name="cenarioUpdateEndereco" classname="app.controller.test.EnderecoControllerTest" time="0.006"/>
+  <testcase name="cenarioFindByCidadeContaining" classname="app.controller.test.EnderecoControllerTest" time="0.004"/>
+  <testcase name="cenarioDeleteEndereco" classname="app.controller.test.EnderecoControllerTest" time="0.004"/>
+  <testcase name="cenarioFindByIdEndereco" classname="app.controller.test.EnderecoControllerTest" time="0.005"/>
+  <testcase name="cenarioFindByEstadoContaining" classname="app.controller.test.EnderecoControllerTest" time="0.005"/>
 </testsuite>

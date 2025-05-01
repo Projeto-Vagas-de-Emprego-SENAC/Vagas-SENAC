@@ -21,67 +21,67 @@ import jakarta.validation.Valid;
 
     @PostMapping(&quot;/save&quot;)
     public ResponseEntity&lt;String&gt; save(@RequestBody Vagas vagas) {
-<span class="nc" id="L24">        String mensagem = this.vagasService.save(vagas);</span>
-<span class="nc" id="L25">        return ResponseEntity.ok(mensagem);</span>
+<span class="fc" id="L24">        String mensagem = this.vagasService.save(vagas);</span>
+<span class="fc" id="L25">        return ResponseEntity.ok(mensagem);</span>
     }
 
     @DeleteMapping(&quot;/delete/{id}&quot;)
     public ResponseEntity&lt;String&gt; delete(@PathVariable long id) {
-<span class="nc" id="L30">        String mensagem = this.vagasService.delete(id);</span>
-<span class="nc" id="L31">        return ResponseEntity.ok(mensagem);</span>
+<span class="fc" id="L30">        String mensagem = this.vagasService.delete(id);</span>
+<span class="fc" id="L31">        return ResponseEntity.ok(mensagem);</span>
     }
 
     @GetMapping(&quot;/findById/{id}&quot;)
     public ResponseEntity&lt;Vagas&gt; findById(@PathVariable long id) {
-<span class="nc" id="L36">        Vagas vagas = this.vagasService.findById(id);</span>
-<span class="nc" id="L37">        return ResponseEntity.ok(vagas);</span>
+<span class="fc" id="L36">        Vagas vagas = this.vagasService.findById(id);</span>
+<span class="fc" id="L37">        return ResponseEntity.ok(vagas);</span>
     }
 
     @PutMapping(&quot;/update/{id}&quot;)
     public ResponseEntity&lt;String&gt; update(@Valid @PathVariable long id, @RequestBody Vagas vagas) {
-<span class="nc" id="L42">        String mensagem = this.vagasService.update(vagas, id);</span>
-<span class="nc" id="L43">        return ResponseEntity.ok(mensagem);</span>
+<span class="fc" id="L42">        String mensagem = this.vagasService.update(vagas, id);</span>
+<span class="fc" id="L43">        return ResponseEntity.ok(mensagem);</span>
     }
 
     @GetMapping(&quot;/findAll&quot;)
     public ResponseEntity&lt;List&lt;Vagas&gt;&gt; findAll() {
-<span class="nc" id="L48">        List&lt;Vagas&gt; lista = this.vagasService.findAll();</span>
-<span class="nc" id="L49">        return ResponseEntity.ok(lista);</span>
+<span class="fc" id="L48">        List&lt;Vagas&gt; lista = this.vagasService.findAll();</span>
+<span class="fc" id="L49">        return ResponseEntity.ok(lista);</span>
     }
 
     @GetMapping(&quot;/findByTitulo&quot;)
     public ResponseEntity&lt;List&lt;Vagas&gt;&gt; findByTituloContainingIgnoreCase(@RequestParam String titulo) {
-<span class="nc" id="L54">        return ResponseEntity.ok(this.vagasService.findByTituloContainingIgnoreCase(titulo));</span>
+<span class="fc" id="L54">        return ResponseEntity.ok(this.vagasService.findByTituloContainingIgnoreCase(titulo));</span>
     }
 
     @GetMapping(&quot;/findByRequisito&quot;)
     public ResponseEntity&lt;List&lt;Vagas&gt;&gt; findByRequisito(@RequestParam String requisito) {
-<span class="nc" id="L59">        return ResponseEntity.ok(this.vagasService.findByRequisito(requisito));</span>
+<span class="fc" id="L59">        return ResponseEntity.ok(this.vagasService.findByRequisito(requisito));</span>
     }
 
     @GetMapping(&quot;/findBySalario&quot;)
     public ResponseEntity&lt;List&lt;Vagas&gt;&gt; findBySalarioBetween(@RequestParam float salario1, @RequestParam float salario2) {
-<span class="nc" id="L64">        return ResponseEntity.ok(this.vagasService.findBySalarioBetween(salario1, salario2));</span>
+<span class="fc" id="L64">        return ResponseEntity.ok(this.vagasService.findBySalarioBetween(salario1, salario2));</span>
     }
 
     @GetMapping(&quot;/findBySetor&quot;)
     public ResponseEntity&lt;List&lt;Vagas&gt;&gt; findBySetor(@RequestParam String setor) {
-<span class="nc" id="L69">        return ResponseEntity.ok(this.vagasService.findBySetor(setor));</span>
+<span class="fc" id="L69">        return ResponseEntity.ok(this.vagasService.findBySetor(setor));</span>
     }
 
     @GetMapping(&quot;/findByDataAnuncio&quot;)
     public ResponseEntity&lt;List&lt;Vagas&gt;&gt; findByDataAnuncio(@RequestParam LocalDate data) {
-<span class="nc" id="L74">        return ResponseEntity.ok(this.vagasService.findByDataAnuncio(data));</span>
+<span class="fc" id="L74">        return ResponseEntity.ok(this.vagasService.findByDataAnuncio(data));</span>
     }
 
     @GetMapping(&quot;/findByTipo&quot;)
     public ResponseEntity&lt;List&lt;Vagas&gt;&gt; findByTipo(@RequestParam String tipo) {
-<span class="nc" id="L79">        return ResponseEntity.ok(this.vagasService.findByTipo(tipo));</span>
+<span class="fc" id="L79">        return ResponseEntity.ok(this.vagasService.findByTipo(tipo));</span>
     }
 
     @GetMapping(&quot;/findByNivelExperiencia&quot;)
     public ResponseEntity&lt;List&lt;Vagas&gt;&gt; findByNivelExperiencia(@RequestParam String nivelExperiencia) {
-<span class="nc" id="L84">        return ResponseEntity.ok(this.vagasService.findByNivelExperiencia(nivelExperiencia));</span>
+<span class="fc" id="L84">        return ResponseEntity.ok(this.vagasService.findByNivelExperiencia(nivelExperiencia));</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

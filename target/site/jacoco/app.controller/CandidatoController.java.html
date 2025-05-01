@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,50 +25,51 @@ import jakarta.validation.Valid;
 @RestController
 @RequestMapping(&quot;/api/candidato&quot;)
 @CrossOrigin (&quot;*&quot;)
-<span class="fc" id="L27">public class CandidatoController {</span>
+@Validated
+<span class="fc" id="L29">public class CandidatoController {</span>
 	
 	@Autowired
     private CandidatoService candidatoService;
 
     @PostMapping(&quot;/save&quot;)
     public ResponseEntity&lt;String&gt; save(@RequestBody Candidato candidato) {
-<span class="nc" id="L34">        String mensagem = this.candidatoService.save(candidato);</span>
-<span class="nc" id="L35">        return ResponseEntity.ok(mensagem);</span>
+<span class="fc" id="L36">        String mensagem = this.candidatoService.save(candidato);</span>
+<span class="fc" id="L37">        return ResponseEntity.ok(mensagem);</span>
     }
 
     @DeleteMapping(&quot;/delete/{id}&quot;)
     public ResponseEntity&lt;String&gt; delete(@PathVariable long id) {
-<span class="nc" id="L40">        String mensagem = this.candidatoService.delete(id);</span>
-<span class="nc" id="L41">        return ResponseEntity.ok(mensagem);</span>
+<span class="fc" id="L42">        String mensagem = this.candidatoService.delete(id);</span>
+<span class="fc" id="L43">        return ResponseEntity.ok(mensagem);</span>
     }
 
     @GetMapping(&quot;/findById/{id}&quot;)
     public ResponseEntity&lt;Candidato&gt; findById(@PathVariable long id) {
-<span class="nc" id="L46">        Candidato candidato = this.candidatoService.findById(id);</span>
-<span class="nc" id="L47">        return ResponseEntity.ok(candidato);</span>
+<span class="fc" id="L48">        Candidato candidato = this.candidatoService.findById(id);</span>
+<span class="fc" id="L49">        return ResponseEntity.ok(candidato);</span>
     }
 
     @PutMapping(&quot;/update/{id}&quot;)
     public ResponseEntity&lt;String&gt; update(@Valid @PathVariable long id, @RequestBody Candidato candidato) {
-<span class="nc" id="L52">        String mensagem = this.candidatoService.update(candidato, id);</span>
-<span class="nc" id="L53">        return ResponseEntity.ok(mensagem);</span>
+<span class="fc" id="L54">        String mensagem = this.candidatoService.update(candidato, id);</span>
+<span class="fc" id="L55">        return ResponseEntity.ok(mensagem);</span>
     }
 
     @GetMapping(&quot;/findAll&quot;)
     public ResponseEntity&lt;List&lt;Candidato&gt;&gt; findAll() {
-<span class="nc" id="L58">        List&lt;Candidato&gt; lista = this.candidatoService.findAll();</span>
-<span class="nc" id="L59">        return ResponseEntity.ok(lista);</span>
+<span class="fc" id="L60">        List&lt;Candidato&gt; lista = this.candidatoService.findAll();</span>
+<span class="fc" id="L61">        return ResponseEntity.ok(lista);</span>
     }
 
     @PostMapping(&quot;/inscricao&quot;)
     public ResponseEntity&lt;String&gt; inscricao(@RequestParam long idCandidato, @RequestParam long idVaga) {
-<span class="nc" id="L64">        String mensagem = this.candidatoService.inscricao(idCandidato, idVaga);</span>
-<span class="nc" id="L65">        return ResponseEntity.ok(mensagem);</span>
+<span class="fc" id="L66">        String mensagem = this.candidatoService.inscricao(idCandidato, idVaga);</span>
+<span class="fc" id="L67">        return ResponseEntity.ok(mensagem);</span>
     }
 
     @GetMapping(&quot;/findByCpfContaining&quot;)
     public List&lt;Candidato&gt; findByCpfContaining(@RequestParam String cpf) {
-<span class="nc" id="L70">        return candidatoService.findByCpfContaining(cpf);</span>
+<span class="fc" id="L72">        return candidatoService.findByCpfContaining(cpf);</span>
     }
 
 }
