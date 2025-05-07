@@ -40,7 +40,7 @@ public class EmpregadorControllerTest {
 	void setup() {
 		
 	    List<Empregador> lista = new ArrayList<>();
-	    lista.add(new Empregador(0, "teste1", null, null, null, null, null));
+	    lista.add(new Empregador(0, "teste1", null, null, null, null, null, null));
 	    lista.add(new Empregador());
 
 	    when(empregadorRepository.findAll()).thenReturn(lista);
@@ -56,7 +56,7 @@ public class EmpregadorControllerTest {
 	
 	@Test
 	void cenario002() {
-		Empregador empregadorZoado = new Empregador(0, null, null, null, null, null, null);
+		Empregador empregadorZoado = new Empregador(0, "teste1", null, null, null, null, null, null);
 		
 	    when(empregadorRepository.save(Mockito.any())).thenReturn(empregadorZoado);
 	    
