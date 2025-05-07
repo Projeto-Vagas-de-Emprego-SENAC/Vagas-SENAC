@@ -54,56 +54,56 @@ import app.repository.VagasRepository;
 	
 	public Vagas findById(long id) {
 		
-<span class="nc" id="L57">		Vagas vagas = this.vagasRepository.findById(id).get();</span>
+<span class="fc" id="L57">		Vagas vagas = this.vagasRepository.findById(id).get();</span>
 		
-<span class="nc" id="L59">		return vagas;</span>
+<span class="fc" id="L59">		return vagas;</span>
 	}
 	
 	public String update(Vagas vagas, long id) {
-<span class="nc" id="L63">		vagas.setId(id);</span>
-<span class="nc" id="L64">		this.vagasRepository.save(vagas);</span>
-<span class="nc" id="L65">		return vagas.getDescricao() + &quot; foi atualizado com sucesso!&quot;;</span>
+<span class="fc" id="L63">		vagas.setId(id);</span>
+<span class="fc" id="L64">		this.vagasRepository.save(vagas);</span>
+<span class="fc" id="L65">		return vagas.getDescricao() + &quot; foi atualizado com sucesso!&quot;;</span>
 	}
 	
 	public List&lt;Vagas&gt; findAll(){
 		
-<span class="nc" id="L70">		List&lt;Vagas&gt; lista = this.vagasRepository.findAll();</span>
+<span class="fc" id="L70">		List&lt;Vagas&gt; lista = this.vagasRepository.findAll();</span>
 
 
-<span class="nc" id="L73">		return lista;</span>
+<span class="fc" id="L73">		return lista;</span>
 	}
 	
 	public String delete(long id) {
-<span class="nc" id="L77">		this.vagasRepository.deleteById(id);</span>
-<span class="nc" id="L78">		return &quot;A Vaga foi deletado&quot;;</span>
+<span class="fc" id="L77">		this.vagasRepository.deleteById(id);</span>
+<span class="fc" id="L78">		return &quot;A Vaga foi deletado&quot;;</span>
 	}
 
 	public List&lt;Vagas&gt; findByTituloContainingIgnoreCase(String titulo){
-<span class="nc" id="L82">		return this.vagasRepository.findByTituloContainingIgnoreCase(titulo);</span>
+<span class="fc" id="L82">		return this.vagasRepository.findByTituloContainingIgnoreCase(titulo);</span>
 	}
 	
 	public List&lt;Vagas&gt; findByRequisito(String requisito){
-<span class="nc" id="L86">		return this.vagasRepository.findByRequisito(requisito);</span>
+<span class="fc" id="L86">		return this.vagasRepository.findByRequisito(requisito);</span>
 	}
 	
 	public List&lt;Vagas&gt; findBySalarioBetween(float salario1, float salario2){
-<span class="nc" id="L90">		return this.vagasRepository.findBySalarioBetween(salario1, salario2);</span>
+<span class="fc" id="L90">		return this.vagasRepository.findBySalarioBetween(salario1, salario2);</span>
 	}
 	
 	public List&lt;Vagas&gt; findBySetor(String setor){
-<span class="nc" id="L94">		return this.vagasRepository.findBySetor(setor);</span>
+<span class="fc" id="L94">		return this.vagasRepository.findBySetor(setor);</span>
 	}
 	
 	public List&lt;Vagas&gt; findByDataAnuncio(LocalDate dataAnuncio){
-<span class="nc" id="L98">		return this.vagasRepository.findByDataAnuncio(dataAnuncio);</span>
+<span class="fc" id="L98">		return this.vagasRepository.findByDataAnuncio(dataAnuncio);</span>
 	}
 	
 	public List&lt;Vagas&gt; findByTipo(String tipo){
-<span class="nc" id="L102">		return this.vagasRepository.findByTipo(tipo);</span>
+<span class="fc" id="L102">		return this.vagasRepository.findByTipo(tipo);</span>
 	}
 	
 	public List&lt;Vagas&gt; findByNivelExperiencia(String nivelExperiencia){
-<span class="nc" id="L106">		return this.vagasRepository.findByNivelExperiencia(nivelExperiencia);</span>
+<span class="fc" id="L106">		return this.vagasRepository.findByNivelExperiencia(nivelExperiencia);</span>
 	}
 	
 }
