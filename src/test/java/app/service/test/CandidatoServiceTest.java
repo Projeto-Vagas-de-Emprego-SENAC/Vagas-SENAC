@@ -20,14 +20,14 @@ import org.springframework.test.context.bean.override.mockito.MockitoBean;
 
 import app.entity.Candidato;
 import app.repository.CandidatoRepository;
-import app.service.CandidatoService;
+import app.service.CandidatoService_;
 
 @SpringBootTest
 public class CandidatoServiceTest {
 	
 	
 	@Autowired
-	CandidatoService candidatoService;
+	CandidatoService_ candidatoService;
 	
 	@MockitoBean
 	CandidatoRepository candidatoRepository;
