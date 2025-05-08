@@ -3,25 +3,37 @@ package app.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import app.entity.Candidato;
 import app.repository.CandidatoRepository;
-import jakarta.persistence.EntityNotFoundException;
 @Service
-public class CandidatoService {
+public class CandidatoService_ {
 	
 	@Autowired
 	private CandidatoRepository candidatoRepository;
 	
+	@Autowired
+	private BCryptPasswordEncoder bCryptPasswordEncoder;
+	
 	public String save(Candidato candidato) {
 		
-		Candidato cand = this.candidatoRepository.findByCpf(candidato.getCpf());
-		if(cand != null) {
-			throw new RuntimeException("Ja existe um candidato cadastrado com o "+cand.getCpf());
+		List<Candidato> cand = this.candidatoRepository.findByCpfContaining(candidato.getCpf());
+		if(cand != null && !cand.isEmpty()) {
+			throw new RuntimeException("Ja existe um candidato cadastrado com o "+cand.get(0).getCpf());
 		}
 		
+		if(candidato.getEnderecos() != null) {
+			for(int i=0; i<candidato.getEnderecos().size(); i++) {
+				candidato.getEnderecos().get(i).setCandidato(candidato);
+			}
+		}
 		
+		//
+		String senhaCrip = this.bCryptPasswordEncoder.encode(candidato.getUsuario().getPassword());
+		candidato.getUsuario().setPassword(senhaCrip);
+		//
 		
 		this.candidatoRepository.save(candidato);
 		
@@ -37,6 +49,14 @@ public class CandidatoService {
 	
 	public String update(Candidato candidato, long id) {
 		candidato.setId(id);
+		
+		if(candidato.getEnderecos() != null) {
+			for(int i=0; i<candidato.getEnderecos().size(); i++) {
+				candidato.getEnderecos().get(i).setCandidato(candidato);
+			}
+		}
+		
+		
 		this.candidatoRepository.save(candidato);
 		return candidato.getNome() + " foi atualizado com sucesso!";
 	}
@@ -60,8 +80,11 @@ public class CandidatoService {
 		return "inscricao realizada com sucesso";
 		
 	}
-	public Candidato findByCpf(String cpf) {
-              throw new RuntimeException("Candidato não encontrado com CPF: " + cpf);
+	public List<Candidato> findByCpfContaining(String cpf) {
+             
+		return candidatoRepository.findByCpfContaining(cpf);
    }
+	
+	//dfhbdufhufhd
 	
 }
