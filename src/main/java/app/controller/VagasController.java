@@ -5,7 +5,17 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import app.entity.Vagas;
 import app.service.VagasService;
@@ -18,37 +28,40 @@ public class VagasController {
 
     @Autowired
     private VagasService vagasService;
-
+    
+    @PreAuthorize("hasAuthority('Empregador')")
     @PostMapping("/save")
     public ResponseEntity<String> save(@RequestBody Vagas vagas) {
         String mensagem = this.vagasService.save(vagas);
         return ResponseEntity.ok(mensagem);
     }
-
+    
+    @PreAuthorize("hasAuthority('Empregador')")
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<String> delete(@PathVariable long id) {
         String mensagem = this.vagasService.delete(id);
         return ResponseEntity.ok(mensagem);
     }
-
+    @PreAuthorize("hasAuthority('Empregador')")
     @GetMapping("/findById/{id}")
     public ResponseEntity<Vagas> findById(@PathVariable long id) {
         Vagas vagas = this.vagasService.findById(id);
         return ResponseEntity.ok(vagas);
     }
-
+    
+    @PreAuthorize("hasAuthority('Empregador')")
     @PutMapping("/update/{id}")
     public ResponseEntity<String> update(@Valid @PathVariable long id, @RequestBody Vagas vagas) {
         String mensagem = this.vagasService.update(vagas, id);
         return ResponseEntity.ok(mensagem);
     }
-
+    
     @GetMapping("/findAll")
     public ResponseEntity<List<Vagas>> findAll() {
         List<Vagas> lista = this.vagasService.findAll();
         return ResponseEntity.ok(lista);
     }
-
+    
     @GetMapping("/findByTitulo")
     public ResponseEntity<List<Vagas>> findByTituloContainingIgnoreCase(@RequestParam String titulo) {
         return ResponseEntity.ok(this.vagasService.findByTituloContainingIgnoreCase(titulo));
