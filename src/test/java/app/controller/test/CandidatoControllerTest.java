@@ -2,7 +2,7 @@ package app.controller.test;
 
 import app.controller.CandidatoController;
 import app.entity.Candidato;
-import app.service.CandidatoService;
+import app.service.CandidatoService_;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -23,7 +23,7 @@ class CandidatoControllerTest {
     CandidatoController candidatoController;
 
     @MockitoBean
-    CandidatoService candidatoService;
+    CandidatoService_ candidatoService;
 
     @Test
     void cenarioSaveCandidato() {
