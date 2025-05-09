@@ -18,8 +18,7 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
-import CandidatoService_;
-import 
+
 
 @Service
 public class JwtServiceGenerator {  
@@ -36,7 +35,6 @@ public class JwtServiceGenerator {
 		Map<String, Object> payloadData = new HashMap<>();
 		payloadData.put("username", usuario.getUsername());
 		payloadData.put("id", usuario.getId().toString());
-		payloadData.put("nome", usuario.getNome());
 		payloadData.put("role", usuario.getRole());
 		
 		return payloadData;
