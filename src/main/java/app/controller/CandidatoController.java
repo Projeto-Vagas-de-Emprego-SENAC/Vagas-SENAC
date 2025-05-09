@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,16 +19,18 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import app.entity.Candidato;
-import app.service.CandidatoService;
+import app.entity.Empregador;
+import app.service.CandidatoService_;
 import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/api/candidato")
 @CrossOrigin ("*")
+@Validated
 public class CandidatoController {
 	
 	@Autowired
-    private CandidatoService candidatoService;
+    private CandidatoService_ candidatoService;
 
     @PostMapping("/save")
     public ResponseEntity<String> save(@RequestBody Candidato candidato) {
@@ -34,40 +38,44 @@ public class CandidatoController {
         return ResponseEntity.ok(mensagem);
     }
 
+    @PreAuthorize("hasAuthority('Candidato')")
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<String> delete(@PathVariable long id) {
         String mensagem = this.candidatoService.delete(id);
         return ResponseEntity.ok(mensagem);
     }
-
+    
+    @PreAuthorize("hasAuthority('Candidato')or hasAuthority('Empregador') ")
     @GetMapping("/findById/{id}")
     public ResponseEntity<Candidato> findById(@PathVariable long id) {
         Candidato candidato = this.candidatoService.findById(id);
         return ResponseEntity.ok(candidato);
     }
-
+    @PreAuthorize("hasAuthority('Candidato')")
     @PutMapping("/update/{id}")
     public ResponseEntity<String> update(@Valid @PathVariable long id, @RequestBody Candidato candidato) {
         String mensagem = this.candidatoService.update(candidato, id);
         return ResponseEntity.ok(mensagem);
     }
 
+    @PreAuthorize("hasAuthority('Empregador')")
     @GetMapping("/findAll")
     public ResponseEntity<List<Candidato>> findAll() {
         List<Candidato> lista = this.candidatoService.findAll();
         return ResponseEntity.ok(lista);
     }
 
+    @PreAuthorize("hasAuthority('Candidato')")
     @PostMapping("/inscricao")
     public ResponseEntity<String> inscricao(@RequestParam long idCandidato, @RequestParam long idVaga) {
         String mensagem = this.candidatoService.inscricao(idCandidato, idVaga);
         return ResponseEntity.ok(mensagem);
     }
-
-    @GetMapping("/findByCpf/{cpf}")
-    public ResponseEntity<Candidato> findByCpf(@PathVariable String cpf) {
-        Candidato candidato = candidatoService.findByCpf(cpf);
-        return ResponseEntity.ok(candidato);
+    
+    @PreAuthorize("hasAuthority('Empregador')")
+    @GetMapping("/findByCpfContaining")
+    public List<Candidato> findByCpfContaining(@RequestParam String cpf) {
+        return candidatoService.findByCpfContaining(cpf);
     }
 
 }
