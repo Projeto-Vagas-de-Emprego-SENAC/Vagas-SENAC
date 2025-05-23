@@ -39,7 +39,8 @@ public class CandidatoServiceTest {
 	
 	
 	
-    @Test
+	@Test
+    @DisplayName("Deve encontrar candidato por ID com sucesso")
     void testFindById() {
         Candidato candidato = new Candidato();
         candidato.setId(1L);
@@ -50,11 +51,10 @@ public class CandidatoServiceTest {
         Candidato result = candidatoService.findById(1L);
         assertEquals("Test Candidato", result.getNome());
     }
-    
-    
+
     @Test
+    @DisplayName("Deve salvar candidato com sucesso quando CPF não existe")
     void testSaveCandidatoComSucesso() {
-    
         Candidato candidato = new Candidato();
         candidato.setNome("João");
         candidato.setCpf("12345678900");
@@ -62,23 +62,22 @@ public class CandidatoServiceTest {
         when(candidatoRepository.findByCpfContaining("12345678900"))
                 .thenReturn(Collections.emptyList());
 
-        
         String result = candidatoService.save(candidato);
 
-        
         assertEquals("o Candidato João foi salvo com sucesso", result);
         verify(candidatoRepository, times(1)).save(candidato);
     }
-    	
-    	
+
     @Test
+    @DisplayName("Deve deletar candidato com sucesso")
     void testDelete() {
         String msg = candidatoService.delete(10L);
         assertEquals("O Candidato foi deletado", msg);
         verify(candidatoRepository).deleteById(10L);
     }
-    
+
     @Test
+    @DisplayName("Deve atualizar candidato com sucesso e atribuir ID")
     void testUpdate() {
         Candidato candidato = new Candidato();
         candidato.setNome("Ana");
@@ -89,8 +88,9 @@ public class CandidatoServiceTest {
         assertEquals(5L, candidato.getId());
         verify(candidatoRepository).save(candidato);
     }
-    
+
     @Test
+    @DisplayName("Deve retornar todos os candidatos com sucesso")
     void testFindAll() {
         Candidato c1 = new Candidato();
         c1.setNome("C1");
@@ -105,8 +105,9 @@ public class CandidatoServiceTest {
         assertEquals(2, result.size());
         assertEquals("C1", result.get(0).getNome());
     }
-    
+
     @Test
+    @DisplayName("Deve encontrar candidato por CPF contendo parte do número")
     void testFindByCpfContaining() {
         Candidato c = new Candidato();
         c.setCpf("99999999999");
@@ -121,12 +122,10 @@ public class CandidatoServiceTest {
     }
 
     @Test
+    @DisplayName("Deve realizar inscrição de candidato com sucesso")
     void testInscricao() {
         String msg = candidatoService.inscricao(1L, 2L);
         assertEquals("inscricao realizada com sucesso", msg);
         verify(candidatoRepository).inscricao(1L, 2L);
     }
-    
-
-
 }

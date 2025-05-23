@@ -29,6 +29,7 @@ class ContatoServiceTest {
     }
 
     @Test
+    @DisplayName("Deve salvar contato com sucesso quando email não existe")
     void testSaveContatoComSucesso() {
         Contato novoContato = new Contato();
         novoContato.setEmail("novo@email.com");
@@ -42,6 +43,7 @@ class ContatoServiceTest {
     }
 
     @Test
+    @DisplayName("Deve lançar exceção ao tentar salvar contato com email já existente")
     void testSaveContatoEmailJaExiste() {
         Contato contato = new Contato();
         contato.setEmail("existente@email.com");
@@ -60,6 +62,7 @@ class ContatoServiceTest {
     }
 
     @Test
+    @DisplayName("Deve encontrar contato por ID com sucesso")
     void testFindById() {
         Contato contato = new Contato();
         contato.setId(1L);
@@ -74,6 +77,7 @@ class ContatoServiceTest {
     }
 
     @Test
+    @DisplayName("Deve atualizar contato com sucesso e atribuir ID")
     void testUpdateContato() {
         Contato contato = new Contato();
         contato.setEmail("atualizar@email.com");
@@ -86,6 +90,7 @@ class ContatoServiceTest {
     }
 
     @Test
+    @DisplayName("Deve retornar todos os contatos")
     void testFindAll() {
         Contato c1 = new Contato(); c1.setEmail("a@email.com");
         Contato c2 = new Contato(); c2.setEmail("b@email.com");
@@ -99,6 +104,7 @@ class ContatoServiceTest {
     }
 
     @Test
+    @DisplayName("Deve deletar contato com sucesso")
     void testDeleteContato() {
         String resposta = contatoService.delete(5L);
 

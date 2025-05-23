@@ -26,6 +26,7 @@ class CandidatoControllerTest {
     CandidatoService_ candidatoService;
 
     @Test
+    @DisplayName("Deve salvar o candidato e retornar mensagem de sucesso com status 200")
     void cenarioSaveCandidato() {
         Candidato candidato = new Candidato();
         candidato.setNome("João");
@@ -40,6 +41,7 @@ class CandidatoControllerTest {
     }
 
     @Test
+    @DisplayName("Deve deletar o candidato pelo ID e retornar mensagem de sucesso com status 200")
     void cenarioDeleteCandidato() {
         long id = 1L;
         when(candidatoService.delete(id)).thenReturn("O Candidato foi deletado");
@@ -52,6 +54,7 @@ class CandidatoControllerTest {
     }
 
     @Test
+    @DisplayName("Deve retornar o candidato pelo ID com status 200")
     void cenarioFindByIdCandidato() {
         long id = 1L;
         Candidato candidato = new Candidato();
@@ -68,6 +71,7 @@ class CandidatoControllerTest {
     }
 
     @Test
+    @DisplayName("Deve atualizar o candidato e retornar mensagem de sucesso com status 200")
     void cenarioUpdateCandidato() {
         long id = 2L;
         Candidato candidato = new Candidato();
@@ -83,6 +87,7 @@ class CandidatoControllerTest {
     }
 
     @Test
+    @DisplayName("Deve retornar a lista de todos os candidatos com status 200")
     void cenarioFindAllCandidatos() {
         Candidato c1 = new Candidato(); c1.setNome("A");
         Candidato c2 = new Candidato(); c2.setNome("B");
@@ -97,6 +102,7 @@ class CandidatoControllerTest {
     }
 
     @Test
+    @DisplayName("Deve realizar a inscrição do candidato em uma vaga com status 200")
     void cenarioInscricaoCandidato() {
         long idCandidato = 1L;
         long idVaga = 2L;
@@ -111,6 +117,7 @@ class CandidatoControllerTest {
     }
 
     @Test
+    @DisplayName("Deve retornar candidatos cujo CPF contenha a sequência informada")
     void cenarioFindByCpfContaining() {
         String cpf = "123";
         Candidato c = new Candidato();

@@ -26,6 +26,7 @@ class ContatoControllerTest {
     private ContatoService contatoService;
 
     @Test
+    @DisplayName("Deve salvar um novo contato e retornar mensagem de sucesso com status 200")
     void cenarioSaveContato() {
         Contato contato = new Contato();
         contato.setEmail("joao@email.com");
@@ -40,6 +41,7 @@ class ContatoControllerTest {
     }
 
     @Test
+    @DisplayName("Deve deletar um contato pelo ID e retornar mensagem de sucesso com status 200")
     void cenarioDeleteContato() {
         long id = 1L;
         when(contatoService.delete(id)).thenReturn("O Contato foi deletado");
@@ -52,6 +54,7 @@ class ContatoControllerTest {
     }
 
     @Test
+    @DisplayName("Deve retornar o contato pelo ID com status 200")
     void cenarioFindByIdContato() {
         long id = 2L;
         Contato contato = new Contato();
@@ -68,6 +71,7 @@ class ContatoControllerTest {
     }
 
     @Test
+    @DisplayName("Deve atualizar um contato existente e retornar mensagem de sucesso com status 200")
     void cenarioUpdateContato() {
         long id = 3L;
         Contato contato = new Contato();
@@ -83,6 +87,7 @@ class ContatoControllerTest {
     }
 
     @Test
+    @DisplayName("Deve retornar a lista de todos os contatos com status 200")
     void cenarioFindAllContatos() {
         Contato c1 = new Contato(); c1.setEmail("um@email.com");
         Contato c2 = new Contato(); c2.setEmail("dois@email.com");

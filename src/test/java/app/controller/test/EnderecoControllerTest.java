@@ -26,6 +26,7 @@ class EnderecoControllerTest {
     private EnderecoService enderecoService;
 
     @Test
+    @DisplayName("Deve salvar um endereço e retornar mensagem de sucesso com status 200")
     void cenarioSaveEndereco() {
         Endereco endereco = new Endereco();
         endereco.setCidade("São Paulo");
@@ -40,6 +41,7 @@ class EnderecoControllerTest {
     }
 
     @Test
+    @DisplayName("Deve deletar endereço e retornar mensagem de sucesso com status 200")
     void cenarioDeleteEndereco() {
         long id = 1L;
         when(enderecoService.delete(id)).thenReturn("Endereço deletado");
@@ -52,6 +54,7 @@ class EnderecoControllerTest {
     }
 
     @Test
+    @DisplayName("Deve buscar endereço pelo ID e retornar com status 200")
     void cenarioFindByIdEndereco() {
         long id = 2L;
         Endereco endereco = new Endereco();
@@ -68,6 +71,7 @@ class EnderecoControllerTest {
     }
 
     @Test
+    @DisplayName("Deve atualizar um endereço e retornar mensagem de sucesso com status 200")
     void cenarioUpdateEndereco() {
         long id = 3L;
         Endereco endereco = new Endereco();
@@ -83,6 +87,7 @@ class EnderecoControllerTest {
     }
 
     @Test
+    @DisplayName("Deve retornar todos os endereços com status 200")
     void cenarioFindAllEnderecos() {
         Endereco e1 = new Endereco(); e1.setCidade("Rio");
         Endereco e2 = new Endereco(); e2.setCidade("SP");
@@ -97,6 +102,7 @@ class EnderecoControllerTest {
     }
 
     @Test
+    @DisplayName("Deve buscar endereço por cidade exata e retornar com status 200")
     void cenarioFindByCidade() {
         Endereco endereco = new Endereco();
         endereco.setCidade("Salvador");
@@ -111,6 +117,7 @@ class EnderecoControllerTest {
     }
 
     @Test
+    @DisplayName("Deve buscar endereços por estado exato e retornar com status 200")
     void cenarioFindByEstado() {
         Endereco endereco = new Endereco();
         endereco.setEstado("BA");
@@ -125,6 +132,7 @@ class EnderecoControllerTest {
     }
 
     @Test
+    @DisplayName("Deve buscar endereços contendo parte do nome da cidade e retornar com status 200")
     void cenarioFindByCidadeContaining() {
         Endereco endereco = new Endereco();
         endereco.setCidade("Porto Alegre");
@@ -139,6 +147,7 @@ class EnderecoControllerTest {
     }
 
     @Test
+    @DisplayName("Deve buscar endereços contendo parte do estado e retornar com status 200")
     void cenarioFindByEstadoContaining() {
         Endereco endereco = new Endereco();
         endereco.setEstado("RS");

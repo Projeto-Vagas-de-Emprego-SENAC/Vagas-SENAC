@@ -30,6 +30,7 @@ class VagasServiceTest {
     }
 
     @Test
+    @DisplayName("Deve salvar uma vaga com sucesso")
     void testSaveVaga() {
         Vagas vaga = new Vagas();
         vaga.setDescricao("Desenvolvedor Java");
@@ -43,6 +44,7 @@ class VagasServiceTest {
     }
 
     @Test
+    @DisplayName("Deve buscar vaga por ID com sucesso")
     void testFindById() {
         Vagas vaga = new Vagas();
         vaga.setId(1L);
@@ -57,6 +59,7 @@ class VagasServiceTest {
     }
 
     @Test
+    @DisplayName("Deve atualizar uma vaga e atribuir o ID")
     void testUpdateVaga() {
         Vagas vaga = new Vagas();
         vaga.setDescricao("Atualizada");
@@ -69,6 +72,7 @@ class VagasServiceTest {
     }
 
     @Test
+    @DisplayName("Deve listar todas as vagas")
     void testFindAll() {
         Vagas v1 = new Vagas(); v1.setDescricao("QA");
         Vagas v2 = new Vagas(); v2.setDescricao("DevOps");
@@ -82,6 +86,7 @@ class VagasServiceTest {
     }
 
     @Test
+    @DisplayName("Deve deletar vaga por ID")
     void testDelete() {
         String resultado = vagasService.delete(10L);
 
@@ -90,6 +95,7 @@ class VagasServiceTest {
     }
 
     @Test
+    @DisplayName("Deve buscar vagas pelo título ignorando case")
     void testFindByTituloContainingIgnoreCase() {
         Vagas v = new Vagas(); v.setDescricao("vaga java");
 
@@ -102,6 +108,7 @@ class VagasServiceTest {
     }
 
     @Test
+    @DisplayName("Deve buscar vagas por requisito específico")
     void testFindByRequisito() {
         Vagas v = new Vagas(); v.setDescricao("vaga com Spring");
 
@@ -114,6 +121,7 @@ class VagasServiceTest {
     }
 
     @Test
+    @DisplayName("Deve buscar vagas com salário entre faixa especificada")
     void testFindBySalarioBetween() {
         Vagas v = new Vagas(); v.setDescricao("vaga 3k");
 
@@ -126,6 +134,7 @@ class VagasServiceTest {
     }
 
     @Test
+    @DisplayName("Deve buscar vagas por setor")
     void testFindBySetor() {
         Vagas v = new Vagas(); v.setDescricao("vaga TI");
 
@@ -138,6 +147,7 @@ class VagasServiceTest {
     }
 
     @Test
+    @DisplayName("Deve buscar vagas por data do anúncio")
     void testFindByDataAnuncio() {
         LocalDate hoje = LocalDate.now();
         Vagas v = new Vagas(); v.setDescricao("vaga hoje");
@@ -151,6 +161,7 @@ class VagasServiceTest {
     }
 
     @Test
+    @DisplayName("Deve buscar vagas por tipo")
     void testFindByTipo() {
         Vagas v = new Vagas(); v.setDescricao("vaga CLT");
 
@@ -163,6 +174,7 @@ class VagasServiceTest {
     }
 
     @Test
+    @DisplayName("Deve buscar vagas por nível de experiência")
     void testFindByNivelExperiencia() {
         Vagas v = new Vagas(); v.setDescricao("vaga junior");
 

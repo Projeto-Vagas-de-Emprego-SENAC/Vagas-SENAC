@@ -32,6 +32,7 @@ class EmpregadorServiceTest {
     }
 
     @Test
+    @DisplayName("Deve salvar empregador com sucesso quando CNPJ não existe")
     void testSaveEmpregadorComSucesso() {
         Empregador empregador = new Empregador();
         empregador.setNomeFantasia("Empresa X");
@@ -47,6 +48,7 @@ class EmpregadorServiceTest {
     }
 
     @Test
+    @DisplayName("Deve lançar exceção ao tentar salvar empregador com CNPJ duplicado")
     void testSaveEmpregadorCnpjDuplicado() {
         Empregador existente = new Empregador();
         existente.setCnpj("11111111000111");
@@ -66,6 +68,7 @@ class EmpregadorServiceTest {
     }
 
     @Test
+    @DisplayName("Deve encontrar empregador por ID com sucesso")
     void testFindById() {
         Empregador emp = new Empregador();
         emp.setId(1L);
@@ -79,6 +82,7 @@ class EmpregadorServiceTest {
     }
 
     @Test
+    @DisplayName("Deve atualizar empregador e atribuir ID corretamente")
     void testUpdateEmpregador() {
         Empregador emp = new Empregador();
         emp.setNomeFantasia("Atualizado");
@@ -91,6 +95,7 @@ class EmpregadorServiceTest {
     }
 
     @Test
+    @DisplayName("Deve retornar todos os empregadores")
     void testFindAll() {
         Empregador e1 = new Empregador(); e1.setNomeFantasia("A");
         Empregador e2 = new Empregador(); e2.setNomeFantasia("B");
@@ -104,6 +109,7 @@ class EmpregadorServiceTest {
     }
 
     @Test
+    @DisplayName("Deve deletar empregador com sucesso")
     void testDelete() {
         String resposta = empregadorService.delete(10L);
 
@@ -112,6 +118,7 @@ class EmpregadorServiceTest {
     }
 
     @Test
+    @DisplayName("Deve buscar empregador por nome fantasia")
     void testFindByNomeFantasia() {
         Empregador e = new Empregador(); e.setNomeFantasia("Empresa XP");
 
@@ -125,6 +132,7 @@ class EmpregadorServiceTest {
     }
 
     @Test
+    @DisplayName("Deve buscar empregadores cujo nome fantasia contenha parte da string")
     void testFindByNomeFantasiaContaining() {
         Empregador e = new Empregador(); e.setNomeFantasia("Tech Solutions");
 
@@ -138,6 +146,7 @@ class EmpregadorServiceTest {
     }
 
     @Test
+    @DisplayName("Deve buscar empregadores cujo CNPJ contenha parte da string")
     void testFindByCnpjContaining() {
         Empregador e = new Empregador(); e.setCnpj("12345678000195");
 
@@ -151,6 +160,7 @@ class EmpregadorServiceTest {
     }
 
     @Test
+    @DisplayName("Deve salvar empregador com endereços e associar corretamente")
     void testSaveEmpregadorComEnderecos() {
         Empregador empregador = new Empregador();
         empregador.setCnpj("55555555000155");

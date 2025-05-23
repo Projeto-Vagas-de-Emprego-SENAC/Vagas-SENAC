@@ -27,6 +27,7 @@ class VagasControllerTest {
     private VagasService vagasService;
 
     @Test
+    @DisplayName("Deve salvar uma vaga e retornar mensagem de sucesso com status 200")
     void cenarioSaveVaga() {
         Vagas vaga = new Vagas();
         vaga.setDescricao("Java Dev");
@@ -41,6 +42,7 @@ class VagasControllerTest {
     }
 
     @Test
+    @DisplayName("Deve deletar uma vaga e retornar mensagem de sucesso com status 200")
     void cenarioDeleteVaga() {
         long id = 1L;
         when(vagasService.delete(id)).thenReturn("A Vaga foi deletado");
@@ -53,6 +55,7 @@ class VagasControllerTest {
     }
 
     @Test
+    @DisplayName("Deve buscar uma vaga por ID e retornar com status 200")
     void cenarioFindById() {
         long id = 2L;
         Vagas vaga = new Vagas();
@@ -69,6 +72,7 @@ class VagasControllerTest {
     }
 
     @Test
+    @DisplayName("Deve atualizar uma vaga e retornar mensagem de sucesso com status 200")
     void cenarioUpdateVaga() {
         long id = 3L;
         Vagas vaga = new Vagas();
@@ -84,6 +88,7 @@ class VagasControllerTest {
     }
 
     @Test
+    @DisplayName("Deve retornar todas as vagas com status 200")
     void cenarioFindAll() {
         Vagas v1 = new Vagas(); v1.setDescricao("Front");
         Vagas v2 = new Vagas(); v2.setDescricao("Back");
@@ -98,6 +103,7 @@ class VagasControllerTest {
     }
 
     @Test
+    @DisplayName("Deve buscar vagas por título ignorando case e retornar com status 200")
     void cenarioFindByTitulo() {
         String titulo = "java";
         Vagas v = new Vagas(); v.setDescricao("java backend");
@@ -111,6 +117,7 @@ class VagasControllerTest {
     }
 
     @Test
+    @DisplayName("Deve buscar vagas por requisito e retornar com status 200")
     void cenarioFindByRequisito() {
         String requisito = "spring";
         Vagas v = new Vagas(); v.setDescricao("vaga com spring");
@@ -124,6 +131,7 @@ class VagasControllerTest {
     }
 
     @Test
+    @DisplayName("Deve buscar vagas com salário entre dois valores e retornar com status 200")
     void cenarioFindBySalarioBetween() {
         float salario1 = 2000f;
         float salario2 = 4000f;
@@ -138,6 +146,7 @@ class VagasControllerTest {
     }
 
     @Test
+    @DisplayName("Deve buscar vagas por setor e retornar com status 200")
     void cenarioFindBySetor() {
         String setor = "TI";
         Vagas v = new Vagas(); v.setDescricao("vaga TI");
@@ -151,6 +160,7 @@ class VagasControllerTest {
     }
 
     @Test
+    @DisplayName("Deve buscar vagas pela data de anúncio e retornar com status 200")
     void cenarioFindByDataAnuncio() {
         LocalDate data = LocalDate.now();
         Vagas v = new Vagas(); v.setDescricao("vaga hoje");
@@ -164,6 +174,7 @@ class VagasControllerTest {
     }
 
     @Test
+    @DisplayName("Deve buscar vagas por tipo de contratação e retornar com status 200")
     void cenarioFindByTipo() {
         String tipo = "CLT";
         Vagas v = new Vagas(); v.setDescricao("vaga CLT");
@@ -177,6 +188,7 @@ class VagasControllerTest {
     }
 
     @Test
+    @DisplayName("Deve buscar vagas por nível de experiência e retornar com status 200")
     void cenarioFindByNivelExperiencia() {
         String nivel = "junior";
         Vagas v = new Vagas(); v.setDescricao("vaga junior");
