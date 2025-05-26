@@ -3,6 +3,8 @@ package app.controller.test;
 import app.controller.VagasController;
 import app.entity.Vagas;
 import app.service.VagasService;
+
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

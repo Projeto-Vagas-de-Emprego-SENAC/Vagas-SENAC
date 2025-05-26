@@ -5,6 +5,7 @@ import app.repository.VagasRepository;
 import app.service.VagasService;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.*;
 
