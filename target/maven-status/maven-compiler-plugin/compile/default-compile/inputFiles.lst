@@ -1,5 +1,14 @@
 C:\Users\mboch\Downloads\projetoSenac\Vagas-SENAC\src\main\java\app\AppMain.java
+C:\Users\mboch\Downloads\projetoSenac\Vagas-SENAC\src\main\java\app\auth\Login.java
+C:\Users\mboch\Downloads\projetoSenac\Vagas-SENAC\src\main\java\app\auth\LoginController.java
+C:\Users\mboch\Downloads\projetoSenac\Vagas-SENAC\src\main\java\app\auth\LoginRepository.java
+C:\Users\mboch\Downloads\projetoSenac\Vagas-SENAC\src\main\java\app\auth\LoginService.java
+C:\Users\mboch\Downloads\projetoSenac\Vagas-SENAC\src\main\java\app\auth\Usuario.java
 C:\Users\mboch\Downloads\projetoSenac\Vagas-SENAC\src\main\java\app\config\GlobalExceptionHandler.java
+C:\Users\mboch\Downloads\projetoSenac\Vagas-SENAC\src\main\java\app\config\JwtAuthenticationFilter.java
+C:\Users\mboch\Downloads\projetoSenac\Vagas-SENAC\src\main\java\app\config\JwtServiceGenerator.java
+C:\Users\mboch\Downloads\projetoSenac\Vagas-SENAC\src\main\java\app\config\SecurityConfig.java
+C:\Users\mboch\Downloads\projetoSenac\Vagas-SENAC\src\main\java\app\config\SecurityManager.java
 C:\Users\mboch\Downloads\projetoSenac\Vagas-SENAC\src\main\java\app\controller\CandidatoController.java
 C:\Users\mboch\Downloads\projetoSenac\Vagas-SENAC\src\main\java\app\controller\ContatoController.java
 C:\Users\mboch\Downloads\projetoSenac\Vagas-SENAC\src\main\java\app\controller\EmpregadorController.java
@@ -15,7 +24,7 @@ C:\Users\mboch\Downloads\projetoSenac\Vagas-SENAC\src\main\java\app\repository\C
 C:\Users\mboch\Downloads\projetoSenac\Vagas-SENAC\src\main\java\app\repository\EmpregadorRepository.java
 C:\Users\mboch\Downloads\projetoSenac\Vagas-SENAC\src\main\java\app\repository\EnderecoRepository.java
 C:\Users\mboch\Downloads\projetoSenac\Vagas-SENAC\src\main\java\app\repository\VagasRepository.java
-C:\Users\mboch\Downloads\projetoSenac\Vagas-SENAC\src\main\java\app\service\CandidatoService.java
+C:\Users\mboch\Downloads\projetoSenac\Vagas-SENAC\src\main\java\app\service\CandidatoService_.java
 C:\Users\mboch\Downloads\projetoSenac\Vagas-SENAC\src\main\java\app\service\ContatoService.java
 C:\Users\mboch\Downloads\projetoSenac\Vagas-SENAC\src\main\java\app\service\EmpregadorService.java
 C:\Users\mboch\Downloads\projetoSenac\Vagas-SENAC\src\main\java\app\service\EnderecoService.java

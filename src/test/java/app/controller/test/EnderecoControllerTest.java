@@ -3,6 +3,8 @@ package app.controller.test;
 import app.controller.EnderecoController;
 import app.entity.Endereco;
 import app.service.EnderecoService;
+
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
