@@ -23,7 +23,10 @@ public class EmpregadorController {
 
     @PostMapping("/save")
     public ResponseEntity<String> save(@Valid @RequestBody Empregador empregador) {
+    	
+    	System.out.println("PASSSOU 1");
         String mensagem = this.empregadorService.save(empregador);
+        System.out.println("PASSSOU 2");
         return ResponseEntity.ok(mensagem);
     }
     

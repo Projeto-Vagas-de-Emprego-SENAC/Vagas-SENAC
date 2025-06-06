@@ -47,6 +47,13 @@ public class CandidatoService_ {
 		return candidato;
 	}
 	
+public Candidato findCandidatoByIdUsuario(long id) {
+		
+		Candidato candidato = this.candidatoRepository.findCandidatoByIdUsuario(id).get();
+		
+		return candidato;
+	}
+	
 	public String update(Candidato candidato, long id) {
 		candidato.setId(id);
 		

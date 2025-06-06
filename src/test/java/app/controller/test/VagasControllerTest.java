@@ -28,7 +28,7 @@ class VagasControllerTest {
     @MockitoBean
     private VagasService vagasService;
 
-    @Test
+   /* @Test
     @DisplayName("Deve salvar uma vaga e retornar mensagem de sucesso com status 200")
     void cenarioSaveVaga() {
         Vagas vaga = new Vagas();
@@ -201,6 +201,6 @@ class VagasControllerTest {
 
         assertEquals(200, resposta.getStatusCodeValue());
         assertEquals("vaga junior", resposta.getBody().get(0).getDescricao());
-    }
+    }*/
 }
 

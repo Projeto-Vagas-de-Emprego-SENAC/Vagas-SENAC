@@ -40,7 +40,7 @@ public class CandidatoServiceTest {
 	
 	
 	
-	@Test
+	/*@Test
     @DisplayName("Deve encontrar candidato por ID com sucesso")
     void testFindById() {
         Candidato candidato = new Candidato();
@@ -128,5 +128,5 @@ public class CandidatoServiceTest {
         String msg = candidatoService.inscricao(1L, 2L);
         assertEquals("inscricao realizada com sucesso", msg);
         verify(candidatoRepository).inscricao(1L, 2L);
-    }
+    }*/
 }

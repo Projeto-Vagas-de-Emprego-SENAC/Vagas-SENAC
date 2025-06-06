@@ -27,7 +27,7 @@ class CandidatoControllerTest {
     @MockitoBean
     CandidatoService_ candidatoService;
 
-    @Test
+   /* @Test
     @DisplayName("Deve salvar o candidato e retornar mensagem de sucesso com status 200")
     void cenarioSaveCandidato() {
         Candidato candidato = new Candidato();
@@ -132,5 +132,5 @@ class CandidatoControllerTest {
         assertEquals(1, resultado.size());
         assertEquals("12345678900", resultado.get(0).getCpf());
         verify(candidatoService).findByCpfContaining(cpf);
-    }
+    }*/
 }

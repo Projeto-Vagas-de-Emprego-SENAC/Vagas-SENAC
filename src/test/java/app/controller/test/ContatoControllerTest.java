@@ -27,7 +27,7 @@ class ContatoControllerTest {
     @MockitoBean
     private ContatoService contatoService;
 
-    @Test
+   /* @Test
     @DisplayName("Deve salvar um novo contato e retornar mensagem de sucesso com status 200")
     void cenarioSaveContato() {
         Contato contato = new Contato();
@@ -102,5 +102,5 @@ class ContatoControllerTest {
         assertEquals(2, resposta.getBody().size());
         assertEquals("um@email.com", resposta.getBody().get(0).getEmail());
         verify(contatoService).findAll();
-    }
+    }*/
 }

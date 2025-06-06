@@ -1,6 +1,7 @@
 package app.repository;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
@@ -16,6 +17,9 @@ public interface CandidatoRepository extends JpaRepository<Candidato, Long> {
 	  @Modifying
 	@Query(value = "INSERT INTO vagas_candidato VALUES (:idCandidato, :idVagas)", nativeQuery = true)
 	public Object inscricao(long idCandidato, long idVagas);
+	
+	@Query("SELECT c FROM Candidato c WHERE c.usuario.id = :idUsuario")
+	public Optional<Candidato> findCandidatoByIdUsuario(long idUsuario);
 	
 
 }

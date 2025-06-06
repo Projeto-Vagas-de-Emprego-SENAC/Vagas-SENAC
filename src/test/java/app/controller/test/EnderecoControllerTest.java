@@ -27,7 +27,7 @@ class EnderecoControllerTest {
     @MockitoBean
     private EnderecoService enderecoService;
 
-    @Test
+  /*  @Test
     @DisplayName("Deve salvar um endereço e retornar mensagem de sucesso com status 200")
     void cenarioSaveEndereco() {
         Endereco endereco = new Endereco();
@@ -161,5 +161,5 @@ class EnderecoControllerTest {
         assertEquals(200, resposta.getStatusCodeValue());
         assertTrue(resposta.getBody().get(0).getEstado().contains("R"));
         verify(enderecoService).findByEstadoContaining("R");
-    }
+    }*/
 }

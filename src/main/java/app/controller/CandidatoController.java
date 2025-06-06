@@ -51,6 +51,14 @@ public class CandidatoController {
         Candidato candidato = this.candidatoService.findById(id);
         return ResponseEntity.ok(candidato);
     }
+    
+    @PreAuthorize("hasAuthority('Candidato')or hasAuthority('Empregador') ")
+    @GetMapping("/findCandidatoByIdUsuario/{id}")
+    public ResponseEntity<Candidato> findCandidatoByIdUsuario(@PathVariable long id) {
+        Candidato candidato = this.candidatoService.findCandidatoByIdUsuario(id);
+        return ResponseEntity.ok(candidato);
+    }
+    
     @PreAuthorize("hasAuthority('Candidato')")
     @PutMapping("/update/{id}")
     public ResponseEntity<String> update(@Valid @PathVariable long id, @RequestBody Candidato candidato) {

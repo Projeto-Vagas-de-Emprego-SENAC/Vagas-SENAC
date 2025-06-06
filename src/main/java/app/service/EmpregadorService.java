@@ -3,6 +3,7 @@ package app.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import app.entity.Empregador;
@@ -18,6 +19,10 @@ public class EmpregadorService {
 	@Autowired 
 	private EnderecoRepository enderecoRepository;
 	
+
+	@Autowired
+	private BCryptPasswordEncoder bCryptPasswordEncoder;
+	
 	public String save(Empregador empregador) {
 		
 		List<Empregador> emp = this.empregadorRepository.findByCnpjContaining(empregador.getCnpj());
@@ -30,6 +35,11 @@ public class EmpregadorService {
 				empregador.getEnderecos().get(i).setEmpregador(empregador);
 			}
 		}
+		
+		//
+		String senhaCrip = this.bCryptPasswordEncoder.encode(empregador.getUsuario().getPassword());
+		empregador.getUsuario().setPassword(senhaCrip);
+		//
 		
 		this.empregadorRepository.save(empregador);
 		

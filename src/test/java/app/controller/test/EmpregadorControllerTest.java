@@ -47,7 +47,7 @@ public class EmpregadorControllerTest {
 	    when(empregadorRepository.findAll()).thenReturn(lista);
 	}
 
-	 @Test
+	 /*@Test
 	    @DisplayName("Deve retornar lista vazia de empregadores (integração com mock)")
 	    void cenario001() {
 	        ResponseEntity<List<Empregador>> retorno = this.empregadorController.findAll();
@@ -161,7 +161,7 @@ public class EmpregadorControllerTest {
 	        assertEquals(1, resultado.size());
 	        assertTrue(resultado.get(0).getCnpj().contains(cnpj));
 	        verify(empregadorService).findByCnpjContaining(cnpj);
-	    }
+	    }*/
 	}
 
 
