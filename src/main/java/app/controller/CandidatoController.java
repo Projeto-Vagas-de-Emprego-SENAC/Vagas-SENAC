@@ -3,7 +3,7 @@ package app.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
+import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import app.entity.Candidato;
-import app.entity.Empregador;
 import app.service.CandidatoService_;
 import jakarta.validation.Valid;
 
@@ -59,9 +58,9 @@ public class CandidatoController {
     }
 
     @PreAuthorize("hasAuthority('Empregador')")
-    @GetMapping("/findAll")
-    public ResponseEntity<List<Candidato>> findAll() {
-        List<Candidato> lista = this.candidatoService.findAll();
+    @GetMapping("/findAll/{numPage}")
+    public ResponseEntity<Page<Candidato>> findAll(@PathVariable ("numPage")int numPage) {
+        Page<Candidato> lista = this.candidatoService.findAll(numPage);
         return ResponseEntity.ok(lista);
     }
 

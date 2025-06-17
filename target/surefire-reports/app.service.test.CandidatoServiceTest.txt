@@ -1,12 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: app.service.test.CandidatoServiceTest
 -------------------------------------------------------------------------------
-Tests run: 7, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 2.287 s <<< FAILURE! -- in app.service.test.CandidatoServiceTest
-app.service.test.CandidatoServiceTest.testSaveCandidatoComSucesso -- Time elapsed: 0.018 s <<< ERROR!
-java.lang.NullPointerException: Cannot invoke "app.auth.Usuario.getPassword()" because the return value of "app.entity.Candidato.getUsuario()" is null
-	at app.service.CandidatoService_.save(CandidatoService_.java:34)
-	at app.service.test.CandidatoServiceTest.testSaveCandidatoComSucesso(CandidatoServiceTest.java:66)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.889 s -- in app.service.test.CandidatoServiceTest

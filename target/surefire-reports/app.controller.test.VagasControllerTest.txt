@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: app.controller.test.VagasControllerTest
 -------------------------------------------------------------------------------
-Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.431 s -- in app.controller.test.VagasControllerTest
+Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.928 s -- in app.controller.test.VagasControllerTest
