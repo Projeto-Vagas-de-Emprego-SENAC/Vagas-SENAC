@@ -51,31 +51,39 @@ import jakarta.validation.Valid;
 <span class="nc" id="L51">        Candidato candidato = this.candidatoService.findById(id);</span>
 <span class="nc" id="L52">        return ResponseEntity.ok(candidato);</span>
     }
+    
+    @PreAuthorize(&quot;hasAuthority('Candidato')or hasAuthority('Empregador') &quot;)
+    @GetMapping(&quot;/findCandidatoByIdUsuario/{id}&quot;)
+    public ResponseEntity&lt;Candidato&gt; findCandidatoByIdUsuario(@PathVariable long id) {
+<span class="nc" id="L58">        Candidato candidato = this.candidatoService.findCandidatoByIdUsuario(id);</span>
+<span class="nc" id="L59">        return ResponseEntity.ok(candidato);</span>
+    }
+    
     @PreAuthorize(&quot;hasAuthority('Candidato')&quot;)
     @PutMapping(&quot;/update/{id}&quot;)
     public ResponseEntity&lt;String&gt; update(@Valid @PathVariable long id, @RequestBody Candidato candidato) {
-<span class="nc" id="L57">        String mensagem = this.candidatoService.update(candidato, id);</span>
-<span class="nc" id="L58">        return ResponseEntity.ok(mensagem);</span>
+<span class="nc" id="L65">        String mensagem = this.candidatoService.update(candidato, id);</span>
+<span class="nc" id="L66">        return ResponseEntity.ok(mensagem);</span>
     }
 
     @PreAuthorize(&quot;hasAuthority('Empregador')&quot;)
     @GetMapping(&quot;/findAll&quot;)
     public ResponseEntity&lt;List&lt;Candidato&gt;&gt; findAll() {
-<span class="nc" id="L64">        List&lt;Candidato&gt; lista = this.candidatoService.findAll();</span>
-<span class="nc" id="L65">        return ResponseEntity.ok(lista);</span>
+<span class="nc" id="L72">        List&lt;Candidato&gt; lista = this.candidatoService.findAll();</span>
+<span class="nc" id="L73">        return ResponseEntity.ok(lista);</span>
     }
 
     @PreAuthorize(&quot;hasAuthority('Candidato')&quot;)
     @PostMapping(&quot;/inscricao&quot;)
     public ResponseEntity&lt;String&gt; inscricao(@RequestParam long idCandidato, @RequestParam long idVaga) {
-<span class="nc" id="L71">        String mensagem = this.candidatoService.inscricao(idCandidato, idVaga);</span>
-<span class="nc" id="L72">        return ResponseEntity.ok(mensagem);</span>
+<span class="nc" id="L79">        String mensagem = this.candidatoService.inscricao(idCandidato, idVaga);</span>
+<span class="nc" id="L80">        return ResponseEntity.ok(mensagem);</span>
     }
     
     @PreAuthorize(&quot;hasAuthority('Empregador')&quot;)
     @GetMapping(&quot;/findByCpfContaining&quot;)
     public List&lt;Candidato&gt; findByCpfContaining(@RequestParam String cpf) {
-<span class="nc" id="L78">        return candidatoService.findByCpfContaining(cpf);</span>
+<span class="nc" id="L86">        return candidatoService.findByCpfContaining(cpf);</span>
     }
 
 }

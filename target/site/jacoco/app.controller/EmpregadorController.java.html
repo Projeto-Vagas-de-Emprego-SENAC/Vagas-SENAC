@@ -23,53 +23,56 @@ import jakarta.validation.Valid;
 
     @PostMapping(&quot;/save&quot;)
     public ResponseEntity&lt;String&gt; save(@Valid @RequestBody Empregador empregador) {
-<span class="nc" id="L26">        String mensagem = this.empregadorService.save(empregador);</span>
-<span class="nc" id="L27">        return ResponseEntity.ok(mensagem);</span>
+    	
+<span class="nc" id="L27">    	System.out.println(&quot;PASSSOU 1&quot;);</span>
+<span class="nc" id="L28">        String mensagem = this.empregadorService.save(empregador);</span>
+<span class="nc" id="L29">        System.out.println(&quot;PASSSOU 2&quot;);</span>
+<span class="nc" id="L30">        return ResponseEntity.ok(mensagem);</span>
     }
     
     @PreAuthorize(&quot;hasAuthority('Empregador')&quot;)
     @DeleteMapping(&quot;/delete/{id}&quot;)
     public ResponseEntity&lt;String&gt; delete(@PathVariable long id) {
-<span class="nc" id="L33">        String mensagem = this.empregadorService.delete(id);</span>
-<span class="nc" id="L34">        return ResponseEntity.ok(mensagem);</span>
+<span class="nc" id="L36">        String mensagem = this.empregadorService.delete(id);</span>
+<span class="nc" id="L37">        return ResponseEntity.ok(mensagem);</span>
     }
     
     @PreAuthorize(&quot;hasAuthority('Empregador')&quot;)
     @GetMapping(&quot;/findById/{id}&quot;)
     public ResponseEntity&lt;Empregador&gt; findById(@PathVariable long id) {
-<span class="nc" id="L40">        Empregador empregador = this.empregadorService.findById(id);</span>
-<span class="nc" id="L41">        return ResponseEntity.ok(empregador);</span>
+<span class="nc" id="L43">        Empregador empregador = this.empregadorService.findById(id);</span>
+<span class="nc" id="L44">        return ResponseEntity.ok(empregador);</span>
     }
 
     @PreAuthorize(&quot;hasAuthority('Empregador')&quot;)
     @PutMapping(&quot;/update/{id}&quot;)
     public ResponseEntity&lt;String&gt; update(@Valid @PathVariable long id, @RequestBody Empregador empregador) {
-<span class="nc" id="L47">        String mensagem = this.empregadorService.update(empregador, id);</span>
-<span class="nc" id="L48">        return ResponseEntity.ok(mensagem);</span>
+<span class="nc" id="L50">        String mensagem = this.empregadorService.update(empregador, id);</span>
+<span class="nc" id="L51">        return ResponseEntity.ok(mensagem);</span>
     }
 
     @PreAuthorize(&quot;hasAuthority('Empregador')or hasAuthority('Candidato')&quot;)
     @GetMapping(&quot;/findAll&quot;)
     public ResponseEntity&lt;List&lt;Empregador&gt;&gt; findAll() {
-<span class="nc" id="L54">        List&lt;Empregador&gt; lista = this.empregadorService.findAll();</span>
-<span class="nc" id="L55">        return ResponseEntity.ok(lista);</span>
+<span class="nc" id="L57">        List&lt;Empregador&gt; lista = this.empregadorService.findAll();</span>
+<span class="nc" id="L58">        return ResponseEntity.ok(lista);</span>
     }
     
     @PreAuthorize(&quot;hasAuthority('Empregador')or hasAuthority('Candidato')&quot;)
     @GetMapping(&quot;/findByNomeFantasia&quot;)
     public List&lt;Empregador&gt; findByNomeFantansia(@RequestParam String nomeFantasia) {
-<span class="nc" id="L61">        return empregadorService.findByNomeFantasia(nomeFantasia);</span>
+<span class="nc" id="L64">        return empregadorService.findByNomeFantasia(nomeFantasia);</span>
     }
     @PreAuthorize(&quot;hasAuthority('Empregador')or hasAuthority('Candidato')&quot;)
     @GetMapping(&quot;/findByNomeFantasiaContaining&quot;)
     public List&lt;Empregador&gt; findByNomeFantasiaContaining(@RequestParam String nomeFantasia) {
-<span class="nc" id="L66">        return empregadorService.findByNomeFantasiaContaining(nomeFantasia);</span>
+<span class="nc" id="L69">        return empregadorService.findByNomeFantasiaContaining(nomeFantasia);</span>
     }
     
     @PreAuthorize(&quot;hasAuthority('Empregador')or hasAuthority('Candidato')&quot;)
     @GetMapping(&quot;/findByCnpjContaining&quot;)
     public List&lt;Empregador&gt; findByCnpj(@RequestParam String cnpj) {
-<span class="nc" id="L72">        return empregadorService.findByCnpjContaining(cnpj);</span>
+<span class="nc" id="L75">        return empregadorService.findByCnpjContaining(cnpj);</span>
     }
     
 }
