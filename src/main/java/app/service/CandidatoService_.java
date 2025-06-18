@@ -3,6 +3,8 @@ package app.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -68,12 +70,10 @@ public Candidato findCandidatoByIdUsuario(long id) {
 		return candidato.getNome() + " foi atualizado com sucesso!";
 	}
 	
-	public List<Candidato> findAll(){
-		
-		List<Candidato> lista = this.candidatoRepository.findAll();
-
-
-		return lista;
+	public Page<Candidato> findAll(int numPage){
+		int totalPorPagina = 5;
+		PageRequest pageRequest = PageRequest.of(numPage-1, totalPorPagina);
+		return this.candidatoRepository.findAll(pageRequest);
 	}
 	
 	public String delete(long id) {
