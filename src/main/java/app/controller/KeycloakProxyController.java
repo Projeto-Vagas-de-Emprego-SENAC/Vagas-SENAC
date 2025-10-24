@@ -46,6 +46,8 @@ public class KeycloakProxyController {
             Map<String, Object> userPayload = new HashMap<>();
             userPayload.put("username", username);
             userPayload.put("email", username + "@tempmail.com"); // ✅ Cria email fake válido
+            userPayload.put("firstName", username);  // ✅ ADICIONA
+            userPayload.put("lastName", "Usuario");  // ✅ ADICIONA
             userPayload.put("enabled", true);
             userPayload.put("emailVerified", true);
             userPayload.put("requiredActions", List.of()); // ✅ ADICIONA ESSA LINHA - lista vazia
