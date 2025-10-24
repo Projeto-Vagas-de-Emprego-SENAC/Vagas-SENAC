@@ -1,83 +1,74 @@
 package app.config;
 
-import java.util.Arrays;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
-import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.oauth2.jwt.JwtDecoder;
+import org.springframework.security.oauth2.jwt.NimbusJwtDecoder;
 import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
-import org.springframework.web.filter.CorsFilter;
+
+import java.util.Arrays;
 
 @Configuration
 @EnableWebSecurity
-public class SecurityConfig  {
+public class SecurityConfig {
 
-	///////////////////////////////////////////////////////
+    @Bean
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        http
+            .csrf(AbstractHttpConfigurer::disable)
+            .cors(cors -> cors.configurationSource(corsConfigurationSource())) // ✅ Configuração correta do CORS
+            .authorizeHttpRequests(auth -> auth
+                .requestMatchers(
+                    "/public/**",
+                    "/api/vagas/findAll",
+                    "/api/vagas/findByTitulo",
+                    "/api/vagas/findByRequisito",
+                    "/api/vagas/findBySalario",
+                    "/api/vagas/findBySetor",
+                    "/api/vagas/findByDataAnuncio",
+                    "/api/vagas/findByTipo",
+                    "/api/vagas/findByNivelExperiencia",
+                    "/api/empregador/save",  // ✅ Permite cadastro de empregador
+                    "/api/candidato/save",   // ✅ Permite cadastro de candidato
+                    "/api/keycloak/create-user",  // ✅ ADICIONA AQUI
+                    "/api/keycloak/login"  // ✅ Adiciona
+                ).permitAll()
+                .anyRequest().authenticated()
+            )
+            .oauth2Login(oauth2 -> {})
+            .oauth2ResourceServer(oauth2 -> oauth2.jwt());
 
-	@Bean
-	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-		http    
-		.csrf(AbstractHttpConfigurer::disable)
-		.cors(AbstractHttpConfigurer::disable)
-		.authorizeHttpRequests((requests) -> requests
-				.requestMatchers("/api/login").permitAll()
-				.requestMatchers("/api/candidato/save").permitAll()
-				.requestMatchers("/api/empregador/save").permitAll()
-				.requestMatchers("/api/vagas/findAll").permitAll()
-				.requestMatchers("/api/vagas/findByTitulo").permitAll()
-				.requestMatchers("/api/vagas/findByRequisito").permitAll()
-				.requestMatchers("/api/vagas/findBySalario").permitAll()
-				.requestMatchers("/api/vagas/findBySetor").permitAll()
-				.requestMatchers("/api/vagas/findByDataAnuncio").permitAll()
-				.requestMatchers("/api/vagas/findByTipo").permitAll()
-				.requestMatchers("/api/vagas/findByNivelExperiencia").permitAll()
+        return http.build();
+    }
 
-				.anyRequest().authenticated())
-		.authenticationProvider(authenticationProvider)
-		.addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)
-		.sessionManagement(customizer -> customizer.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
+    @Bean
+    public CorsConfigurationSource corsConfigurationSource() {
+        CorsConfiguration configuration = new CorsConfiguration();
+        configuration.setAllowedOrigins(Arrays.asList("http://localhost:4200")); // ✅ Permite o front
+        configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
+        configuration.setAllowedHeaders(Arrays.asList("*"));
+        configuration.setAllowCredentials(true);
+        
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        source.registerCorsConfiguration("/**", configuration);
+        return source;
+    }
 
-		return http.build();
-	}
+    @Bean
+    public BCryptPasswordEncoder bCryptPasswordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
 
-	///////////////////////////////////////////////////////
-
-	////commit teste
-
-	@Autowired
-	private JwtAuthenticationFilter jwtAuthFilter;
-
-	@Autowired
-	private AuthenticationProvider authenticationProvider;
-
-
-	@Bean
-	public FilterRegistrationBean<CorsFilter> corsFilter() {
-		UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-		CorsConfiguration config = new CorsConfiguration();
-		config.setAllowCredentials(true);
-		config.setAllowedOriginPatterns(Arrays.asList("*"));
-		config.setAllowedHeaders(Arrays.asList(HttpHeaders.AUTHORIZATION,HttpHeaders.CONTENT_TYPE,HttpHeaders.ACCEPT));
-		config.setAllowedMethods(Arrays.asList(HttpMethod.GET.name(),HttpMethod.POST.name(),HttpMethod.PUT.name(),HttpMethod.DELETE.name()));
-		config.setMaxAge(3600L);
-		source.registerCorsConfiguration("/**", config);
-		FilterRegistrationBean<CorsFilter> bean = new FilterRegistrationBean<CorsFilter>(new CorsFilter(source));
-		bean.setOrder(-102);
-		return bean;
-	}
-	
-	
-
-
+    @Bean
+    public JwtDecoder jwtDecoder() {
+        String issuerUri = "http://localhost:6969/realms/pm03";
+        return NimbusJwtDecoder.withJwkSetUri(issuerUri + "/protocol/openid-connect/certs").build();
+    }
 }
